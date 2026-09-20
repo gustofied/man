@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Verifiers Environments</title>
+<style>html { font-size: 90%; } 
+  @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500&display=swap');
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Palatino Linotype', 'Book Antiqua', Palatino, serif;
+    font-size: 14.5px;
+    line-height: 1.72;
+    color: #2a2a2a;
+    background: #fdfcfa;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 72px 1rem 120px;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ── Header / Memo ── */
+  .memo-head {
+    border-top: 2.5px solid #1a1a1a;
+    border-bottom: 0.5px solid #1a1a1a;
+    padding: 20px 0 16px;
+    margin-bottom: 40px;
+  }
+  .memo-head h1 {
+    font-size: 1.6rem;
+    font-weight: normal;
+    color: #333;
+    line-height: 1.25;
+    margin: 0;
+  }
+  .memo-sub {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    color: #999;
+    letter-spacing: 0.8px;
+    margin-top: 8px;
+  }
+  a.back {
+    font-family: 'JetBrains Mono', monospace; font-size: 9.5px;
+    color: #bbb; text-decoration: none; letter-spacing: 0.5px;
+  }
+  a.back:hover { color: #1a1a1a; }
+
+  /* ── Sections ── */
+  h2 {
+    font-size: 1.3rem;
+    font-weight: normal;
+    color: #333;
+    margin: 56px 0 6px;
+  }
+  h2 .num {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    font-weight: 400;
+    color: #aaa;
+    letter-spacing: 1px;
+    display: block;
+    margin-bottom: 2px;
+  }
+  h3 {
+    font-size: 1rem;
+    font-weight: normal;
+    color: #333;
+    margin: 32px 0 4px;
+  }
+  h3 .sub {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 9px;
+    font-weight: 400;
+    color: #bbb;
+    letter-spacing: 0.5px;
+    margin-right: 6px;
+  }
+  p { margin: 10px 0; }
+  .lede { font-size: 15px; color: #555; line-height: 1.68; }
+
+  /* ── Figures ── */
+  .fig {
+    margin: 28px 0 36px;
+    border: 0.5px solid #ddd;
+    background: #fff;
+    padding: 24px 20px 16px;
+  }
+  .fig svg { display: block; margin: 0 auto; max-width: 100%; }
+  .fig-cap {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 9.5px;
+    color: #999;
+    letter-spacing: 0.3px;
+    margin-top: 14px;
+    padding-top: 10px;
+    border-top: 0.5px solid #eee;
+  }
+
+  /* ── Inline ── */
+  code {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    color: #1a1a1a;
+    background: #f5f4f0;
+    padding: 1.5px 5px;
+    border-bottom: 1px solid #ddd;
+  }
+  pre {
+    margin: 20px 0;
+    padding: 16px 20px;
+    background: #f5f4f0;
+    border: 0.5px solid #e8e4de;
+    overflow-x: auto;
+    line-height: 1.5;
+  }
+  pre code {
+    background: none;
+    padding: 0;
+    border: none;
+    font-size: 12px;
+  }
+  strong { font-weight: 700; color: #1a1a1a; }
+
+  /* ── Labeled blocks ── */
+  .block {
+    background: #faf9f7;
+    border-top: 1px solid #1a1a1a;
+    border-bottom: 0.5px solid #e8e4de;
+    padding: 14px 20px 16px;
+    margin: 20px 0;
+  }
+  .block .label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 8px;
+    color: #aaa;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    display: block;
+    margin-bottom: 10px;
+  }
+  .block pre {
+    margin: 0;
+    padding: 0;
+    background: none;
+    border: none;
+  }
+  .block code {
+    background: none;
+    border: none;
+    padding: 0;
+    font-size: 12.5px;
+    line-height: 1.65;
+  }
+
+  /* ── Tables ── */
+  .ch-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0 0;
+    font-size: 13.5px;
+  }
+  .ch-table th {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 9px;
+    font-weight: 400;
+    color: #aaa;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    text-align: left;
+    padding: 6px 16px;
+    border-bottom: 1px solid #1a1a1a;
+  }
+  .ch-table td {
+    padding: 10px 16px;
+    border-bottom: 0.5px solid #eee;
+    vertical-align: top;
+  }
+  .ch-table .mono {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    white-space: nowrap;
+  }
+
+  /* ── Separators ── */
+  .sep {
+    border: none;
+    text-align: center;
+    margin: 56px 0;
+    line-height: 0;
+  }
+  .sep::after {
+    content: '\2022\2009\2009\2022\2009\2009\2022';
+    font-size: 10px;
+    color: #ccc;
+    letter-spacing: 4px;
+  }
+
+  /* ── Footer ── */
+  .colophon {
+    border-top: 0.5px solid #ddd;
+    margin-top: 64px;
+    padding-top: 16px;
+  }
+  .colophon p {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 9px;
+    color: #ccc;
+    letter-spacing: 0.5px;
+  }
+</style>
+<link rel="stylesheet" href="/navigation.css"><meta name="viewport" content="width=device-width, initial-scale=1"></head>
+<body><nav class="docs-nav" aria-label="Sections"><a href="/">Docs</a><a href="/environments/">Environments</a><a href="/infrastructure/">Infrastructure</a><a href="/rl/" aria-current="page">RL</a></nav><nav class="docs-crumb" aria-label="Breadcrumb"><a href="/rl/">RL</a><span>/</span><span aria-current="page">Verifiers Environments</span></nav>
+
+
+
+<div class="memo-head">
+  <h1>Verifiers Environments</h1>
+</div>
+
+
+<!-- ═══════════════════════════════════════════════════════════
+     I. WHAT IS AN ENVIRONMENT
+     ═══════════════════════════════════════════════════════════ -->
+
+<h2><span class="num">I</span>What is an Environment</h2>
+<p class="lede">Every environment in verifiers is a multi-turn environment. That's the core class. A single-turn environment is just a multi-turn environment with turns set to 1, for example a simple question and answer environment.</p>
+
+<p>An environment packages three things: a <strong>dataset</strong> (task inputs), a <strong>harness</strong> (tools, sandboxes, context), and a <strong>rubric</strong> (reward functions that score the model). The environment is a loop: the model responds to something, the environment reacts, repeat until done.</p>
+
+<p>The dataset gives you the starting state: a prompt and an <code>info</code> field with whatever the environment needs (follow-ups, ground truths, seeds). What turns a simple Q&A dataset into an agentic environment is <code>env_response</code>, the function that reacts to each model turn and feeds back the next message.</p>
+
+<!-- ═══════════════════════════════════════════════════════════
+     II. THE ROLLOUT LOOP
+     ═══════════════════════════════════════════════════════════ -->
+
+<h2><span class="num">II</span>The Rollout Loop</h2>
+
+<p>Each rollout gets a <code>state</code> dict that lives for its full duration. It carries the dataset fields (<code>state["info"]</code>, <code>state["prompt"]</code>), runtime data that verifiers populates as the rollout progresses (<code>trajectory</code>, <code>completion</code>, <code>reward</code>), and anything you store there yourself (database handles, flags, computed values). <code>state</code> is passed to every function in the rollout: <code>setup_state</code>, <code>env_response</code>, stop conditions, cleanup, and reward functions all read from and write to the same object.</p>
+
+<table class="ch-table">
+  <tr>
+    <th></th>
+    <th>What happens</th>
+  </tr>
+  <tr>
+    <td class="mono" style="color: #aaa;">1</td>
+    <td><code>setup_state(state)</code> prepares per-rollout resources (database, server, etc.)</td>
+  </tr>
+  <tr>
+    <td class="mono" style="color: #aaa;">2</td>
+    <td>Model sees the conversation so far, generates a response</td>
+  </tr>
+  <tr>
+    <td class="mono" style="color: #aaa;">3</td>
+    <td>Stop conditions checked. If done, go to 6</td>
+  </tr>
+  <tr>
+    <td class="mono" style="color: #aaa;">4</td>
+    <td><code>env_response(messages, state)</code> reacts: returns new messages to append</td>
+  </tr>
+  <tr>
+    <td class="mono" style="color: #aaa;">5</td>
+    <td>Back to 2</td>
+  </tr>
+  <tr>
+    <td class="mono" style="color: #aaa;">6</td>
+    <td>Final completion rendered, rubric scores the rollout, cleanup runs</td>
+  </tr>
+</table>
+
+<p><code>env_response</code> is the heart of it. For a pre-planned environment, it pulls the next follow-up from <code>state["info"]</code>. For a tool environment, it executes the model's tool calls and returns results. For anything dynamic, it reacts to what the model did. Verifiers doesn't know or care what happens inside, it just expects messages back.</p>
+
+<pre><code><span style="color:#586E75"># simple: pull follow-up from dataset</span>
+<span style="color:#859900">async def</span> <span style="color:#268bd2">env_response</span>(self, messages, state, **kwargs):
+    turn = <span style="color:#6c71c4">len</span>([m <span style="color:#859900">for</span> m <span style="color:#859900">in</span> messages <span style="color:#859900">if</span> m[<span style="color:#2aa198">"role"</span>] == <span style="color:#2aa198">"assistant"</span>]) - <span style="color:#d33682">1</span>
+    <span style="color:#859900">return</span> [{<span style="color:#2aa198">"role"</span>: <span style="color:#2aa198">"user"</span>, <span style="color:#2aa198">"content"</span>: state[<span style="color:#2aa198">"info"</span>][<span style="color:#2aa198">"follow_ups"</span>][turn]}]
+
+<span style="color:#586E75"># tool: execute and return results</span>
+<span style="color:#859900">async def</span> <span style="color:#268bd2">env_response</span>(self, messages, state, **kwargs):
+    tool_calls = parse_tool_calls(messages[<span style="color:#d33682">-1</span>])
+    results = []
+    <span style="color:#859900">for</span> call <span style="color:#859900">in</span> tool_calls:
+        result = <span style="color:#859900">await</span> state[<span style="color:#2aa198">"server"</span>].call_tool(call.name, call.args)
+        results.append({<span style="color:#2aa198">"role"</span>: <span style="color:#2aa198">"tool"</span>, <span style="color:#2aa198">"content"</span>: result})
+    <span style="color:#859900">return</span> results</code></pre>
+
+
+<!-- ═══════════════════════════════════════════════════════════
+     III. LIFECYCLE
+     ═══════════════════════════════════════════════════════════ -->
+
+<h2><span class="num">III</span>Lifecycle</h2>
+<p>Verifiers gives you hooks at each stage of a rollout. You set things up, react to each turn, decide when to stop, and clean up.</p>
+
+<table class="ch-table">
+  <tr>
+    <th>Hook</th>
+    <th>When</th>
+    <th>What you do</th>
+  </tr>
+  <tr>
+    <td class="mono">setup_state</td>
+    <td>start of rollout</td>
+    <td>Spin up databases, servers, per-rollout resources. Store handles in <code>state</code>.</td>
+  </tr>
+  <tr>
+    <td class="mono">env_response</td>
+    <td>after each model turn</td>
+    <td>React to the model's output. Return the next messages.</td>
+  </tr>
+  <tr>
+    <td class="mono">@vf.stop</td>
+    <td>after each turn</td>
+    <td>Custom stop conditions. Return <code>True</code> to end. Built-in <code>max_turns_reached</code> is always there.</td>
+  </tr>
+  <tr>
+    <td class="mono">@vf.cleanup</td>
+    <td>end of rollout</td>
+    <td>Tear down per-rollout resources. Must be idempotent.</td>
+  </tr>
+  <tr>
+    <td class="mono">@vf.teardown</td>
+    <td>environment shutdown</td>
+    <td>Clean up anything shared across all rollouts.</td>
+  </tr>
+</table>
+
+
+<!-- ═══════════════════════════════════════════════════════════
+     IV. STATE
+     ═══════════════════════════════════════════════════════════ -->
+
+<h2><span class="num">IV</span>State</h2>
+<p><code>state</code> is a mutable dict that lives for the duration of a rollout. It's accessible everywhere: in <code>env_response</code>, stop conditions, cleanup, and reward functions. Verifiers populates some fields automatically. You add whatever your environment needs.</p>
+
+<table class="ch-table">
+  <tr>
+    <th>Field</th>
+    <th></th>
+  </tr>
+  <tr>
+    <td class="mono">state["prompt"]</td>
+    <td>initial prompt messages</td>
+  </tr>
+  <tr>
+    <td class="mono">state["info"]</td>
+    <td>per-example data from the dataset (ground truths, seeds, follow-ups)</td>
+  </tr>
+  <tr>
+    <td class="mono">state["trajectory"]</td>
+    <td>list of steps, each with prompt, completion, reward per turn</td>
+  </tr>
+  <tr>
+    <td class="mono">state["completion"]</td>
+    <td>final rendered completion (after rollout ends)</td>
+  </tr>
+  <tr>
+    <td class="mono">state["reward"]</td>
+    <td>final reward (after scoring)</td>
+  </tr>
+</table>
+
+<p>You store your own resources in state too: database connections, server handles, flags. Reward functions can read anything in state, and earlier reward functions can store computed values for later ones to consume.</p>
+
+
+<!-- ═══════════════════════════════════════════════════════════
+     V. SCORING
+     ═══════════════════════════════════════════════════════════ -->
+
+<h2><span class="num">V</span>Scoring</h2>
+<p>Final rubric scoring happens after the rollout completes. The rubric is a list of reward functions with weights. Each function receives what it asks for by name: <code>completion</code>, <code>state</code>, <code>info</code>, <code>answer</code>. Returns a float, typically 0.0 to 1.0. Intermediate per-turn rewards can also be attached during the rollout via trajectory steps.</p>
+
+<pre><code><span style="color:#859900">async def</span> <span style="color:#268bd2">correctness</span>(completion, state, **kwargs):
+    expected = state[<span style="color:#2aa198">"info"</span>][<span style="color:#2aa198">"ground_truths"</span>]
+    actual = parse_answer(completion)
+    <span style="color:#859900">return</span> <span style="color:#d33682">1.0</span> <span style="color:#859900">if</span> actual == expected <span style="color:#859900">else</span> <span style="color:#d33682">0.0</span>
+
+rubric = vf.Rubric(funcs=[correctness], weights=[<span style="color:#d33682">1.0</span>])</code></pre>
+
+<p>Multiple reward functions combine via weighted sum. Use <code>add_metric()</code> with <code>weight=0</code> to track things without affecting the final reward.</p>
+
+
+<div class="colophon">
+  <p>VERIFIERS ENVIRONMENTS</p>
+</div>
+
+    
+  </body>
+</html>

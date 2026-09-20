@@ -1,0 +1,6 @@
+data/
+.doltcfg/
+*.json
+__pycache__/
+
+!tooling/results/*.json

@@ -1,0 +1,344 @@
+{
+  "note": "Source checksums before documented path and navigation adaptations. Git history not transplanted; this is a file import. Runtime databases, virtual environments, caches and secrets excluded.",
+  "sources": {
+    "/Users/adams/projects/terminal2F": "3ea8221a46fa91e8bba616d6d14add3db51bbeea",
+    "/Users/adams/projects/doltgres-rl": "9a6bffe7615379195558939ef73936b43b503241"
+  },
+  "files": [
+    {
+      "source": "/Users/adams/projects/doltgres-rl/.gitignore",
+      "destination": "infrastructure/databases/doltgres/.gitignore",
+      "sha256": "bfdf7b3926e8d7ce91aac52a1b2fb82fb7520018b2774685a9b271f101fc305d"
+    },
+    {
+      "source": "/Users/adams/projects/doltgres-rl/Makefile",
+      "destination": "infrastructure/databases/doltgres/Makefile",
+      "sha256": "bd4edfe118b4e3dddb8118546a10187c7cb75b8039982c9c9ede35dd979e8c5d"
+    },
+    {
+      "source": "/Users/adams/projects/doltgres-rl/PROPOSAL.md",
+      "destination": "infrastructure/databases/doltgres/PROPOSAL.md",
+      "sha256": "695337c646f21f1e0a6175a8c548bf11b4780f11fe04ceca527b4d2011b38729"
+    },
+    {
+      "source": "/Users/adams/projects/doltgres-rl/README.md",
+      "destination": "infrastructure/databases/doltgres/README.md",
+      "sha256": "6f0fb31cc7f0b38aef5d4cc737643da0e04aedc91789dd9de9cf85476262605b"
+    },
+    {
+      "source": "/Users/adams/projects/doltgres-rl/dolt/.gitignore",
+      "destination": "infrastructure/databases/doltgres/dolt/.gitignore",
+      "sha256": "3ed519e10cacc48cc5afd11de18ec9d20e9f32ef93d15c0e4f29f5708bce7496"
+    },
+    {
+      "source": "/Users/adams/projects/doltgres-rl/dolt/base/config.yaml",
+      "destination": "infrastructure/databases/doltgres/dolt/base/config.yaml",
+      "sha256": "2ee75ee62b94d3603965ca74f9fc1ebaf38ef029260c77186a8e9b814c7c2b43"
+    },
+    {
+      "source": "/Users/adams/projects/doltgres-rl/dolt/base/getting_started.yaml",
+      "destination": "infrastructure/databases/doltgres/dolt/base/getting_started.yaml",
+      "sha256": "d6aeffc6c4ad9eaabd085550445314d7e22fa58194bd1c69549832ff345793c5"
+    },
+    {
+      "source": "/Users/adams/projects/doltgres-rl/dolt/base/getting_started_doltgres.py",
+      "destination": "infrastructure/databases/doltgres/dolt/base/getting_started_doltgres.py",
+      "sha256": "f85e5c22cb39344f66fcc63440681d22e87e4025dad5adae68940e53d1a399f4"
+    },
+    {
+      "source": "/Users/adams/projects/doltgres-rl/dolt/base/server.py",
+      "destination": "infrastructure/databases/doltgres/dolt/base/server.py",
+      "sha256": "131c34d4f47bcae98715f71e8fa2fe47336f19b2ee35c4c291961ab9c5ad68e2"
+    },
+    {
+      "source": "/Users/adams/projects/doltgres-rl/dolt/base/server.yaml",
+      "destination": "infrastructure/databases/doltgres/dolt/base/server.yaml",
+      "sha256": "26bbe47743b162391342ef485b002745feb96235ab1299fb2978349f5ec80f4d"
+    },
+    {
+      "source": "/Users/adams/projects/doltgres-rl/dolt/base/setup_doltgres.py",
+      "destination": "infrastructure/databases/doltgres/dolt/base/setup_doltgres.py",
+      "sha256": "732cfd828de5c098298315c18198f3082411261950eaf6650d598e9589b57a11"
+    },
+    {
+      "source": "/Users/adams/projects/doltgres-rl/dolt/base/testing_access_management.py",
+      "destination": "infrastructure/databases/doltgres/dolt/base/testing_access_management.py",
+      "sha256": "960de9ee9da405305029adbd1a88d627ab567678f8c933ad5361d1fd75322016"
+    },
+    {
+      "source": "/Users/adams/projects/doltgres-rl/dolt/base/testing_access_management.yaml",
+      "destination": "infrastructure/databases/doltgres/dolt/base/testing_access_management.yaml",
+      "sha256": "04be05f883b646d6d37541dc9aa10a63235012286febbc6b6f4bbc8a82d24d07"
+    },
+    {
+      "source": "/Users/adams/projects/doltgres-rl/dolt/base/testing_branch_permissions.py",
+      "destination": "infrastructure/databases/doltgres/dolt/base/testing_branch_permissions.py",
+      "sha256": "faa44a884415e11b550ca3c03c015db2a8f5ece04552f5ca15077f48d3d463bd"
+    },
+    {
+      "source": "/Users/adams/projects/doltgres-rl/dolt/base/testing_branch_permissions.yaml",
+      "destination": "infrastructure/databases/doltgres/dolt/base/testing_branch_permissions.yaml",
+      "sha256": "608dd0eceb5c9f4dd408b995301614c8ab58cefbdfaec9380d7992b111532785"
+    },
+    {
+      "source": "/Users/adams/projects/doltgres-rl/dolt/base/testing_how_commit_works.py",
+      "destination": "infrastructure/databases/doltgres/dolt/base/testing_how_commit_works.py",
+      "sha256": "888bf5f8a394aceae8c18a5b4bee4ad1e820a50ad12a72e4a11d93a313f9f857"
+    },
+    {
+      "source": "/Users/adams/projects/doltgres-rl/dolt/base/testing_how_commit_works.yaml",
+      "destination": "infrastructure/databases/doltgres/dolt/base/testing_how_commit_works.yaml",
+      "sha256": "ecf39368e48bd3136418449f6a220280786314aa2c71a6db60a5f9143e3c960a"
+    },
+    {
+      "source": "/Users/adams/projects/doltgres-rl/dolt/dashboard.html",
+      "destination": "infrastructure/databases/doltgres/dolt/dashboard.html",
+      "sha256": "713bc6274e95cfc8e5c8c6a039b615c449069b72c6b10c63fe6aa48ee266c4f7"
+    },
+    {
+      "source": "/Users/adams/projects/doltgres-rl/dolt/dashboard.py",
+      "destination": "infrastructure/databases/doltgres/dolt/dashboard.py",
+      "sha256": "e33533d9ef0166ec5076ffa4a2326ea8909c48a893426560dba5e80e5e0eb833"
+    },
+    {
+      "source": "/Users/adams/projects/doltgres-rl/dolt/rollout_viewer.py",
+      "destination": "infrastructure/databases/doltgres/dolt/rollout_viewer.py",
+      "sha256": "97150144e4b7e02dd9fed77a7f45e7e1ff3ed4a68f0618aceeb2c1b0e2f8de29"
+    },
+    {
+      "source": "/Users/adams/projects/doltgres-rl/dolt/tooling/lab.py",
+      "destination": "infrastructure/databases/doltgres/dolt/tooling/lab.py",
+      "sha256": "cf4d0d2d2bba29db0c90f84b94660d403b71583211ff70f30cd57ac2a730a330"
+    },
+    {
+      "source": "/Users/adams/projects/doltgres-rl/dolt/tooling/lab.yaml",
+      "destination": "infrastructure/databases/doltgres/dolt/tooling/lab.yaml",
+      "sha256": "75fb17eae58662bdc5a8ab3e4555f3ac09f42a73c638f6ecd4d67a08b9068ecb"
+    },
+    {
+      "source": "/Users/adams/projects/doltgres-rl/dolt/tooling/lab_viewer.py",
+      "destination": "infrastructure/databases/doltgres/dolt/tooling/lab_viewer.py",
+      "sha256": "1fd294210b8e185808e96b71f2b908d25dee0e02f1fe1ff9a8ef148908f88dd6"
+    },
+    {
+      "source": "/Users/adams/projects/doltgres-rl/dolt/tooling/orchestrator.py",
+      "destination": "infrastructure/databases/doltgres/dolt/tooling/orchestrator.py",
+      "sha256": "92bf6744ad367060c9b2fb9b151e7b2614e3c1b6a03ef4373f8563440de93f21"
+    },
+    {
+      "source": "/Users/adams/projects/doltgres-rl/dolt/tooling/results/.gitignore",
+      "destination": "infrastructure/databases/doltgres/dolt/tooling/results/.gitignore",
+      "sha256": "2ecbce0e7d255c29009787a5a18bbc26b35b91b34e5c12157d453d0500c3a8d4"
+    },
+    {
+      "source": "/Users/adams/projects/doltgres-rl/dolt/tooling/results/run_2026-03-13_21-30-55.json",
+      "destination": "infrastructure/databases/doltgres/dolt/tooling/results/run_2026-03-13_21-30-55.json",
+      "sha256": "d7fbf167cf07f8b90118541d04d4fb6795bd37adbf1a15a7041030f0eaee0681"
+    },
+    {
+      "source": "/Users/adams/projects/doltgres-rl/dolt/tooling/results/run_2026-03-13_21-32-00.json",
+      "destination": "infrastructure/databases/doltgres/dolt/tooling/results/run_2026-03-13_21-32-00.json",
+      "sha256": "0cf487585af50ed07de2e37f43c760060ad5bc100e3e3173cae5523abedf09d7"
+    },
+    {
+      "source": "/Users/adams/projects/doltgres-rl/dolt/tooling/results/run_2026-03-13_21-41-25.json",
+      "destination": "infrastructure/databases/doltgres/dolt/tooling/results/run_2026-03-13_21-41-25.json",
+      "sha256": "f400d002c2ee75a40ccfadf924b5e9797f576ac705ef55ed1b061eaa45418f6f"
+    },
+    {
+      "source": "/Users/adams/projects/doltgres-rl/dolt/tooling/results/run_2026-03-13_21-41-44.json",
+      "destination": "infrastructure/databases/doltgres/dolt/tooling/results/run_2026-03-13_21-41-44.json",
+      "sha256": "6e495067b4b63e0ad0ace0a35ad424c8793c59a8a1d24455b9d627ebcd0916cf"
+    },
+    {
+      "source": "/Users/adams/projects/doltgres-rl/dolt/tooling/results/run_2026-03-13_21-43-20.json",
+      "destination": "infrastructure/databases/doltgres/dolt/tooling/results/run_2026-03-13_21-43-20.json",
+      "sha256": "d9e156fdfb6d22637224160806051c7d5be601611c992a9e785b5b15cf14cbc9"
+    },
+    {
+      "source": "/Users/adams/projects/doltgres-rl/dolt/tooling/results/run_2026-03-13_21-49-00.json",
+      "destination": "infrastructure/databases/doltgres/dolt/tooling/results/run_2026-03-13_21-49-00.json",
+      "sha256": "1930f61204b81a4c6791c63faae6abfe11d8cff1a03e5a8679a2891b4df6f0cb"
+    },
+    {
+      "source": "/Users/adams/projects/doltgres-rl/dolt/tooling/results/run_2026-03-13_21-49-35.json",
+      "destination": "infrastructure/databases/doltgres/dolt/tooling/results/run_2026-03-13_21-49-35.json",
+      "sha256": "3deebca63fa60cd0715dd988683b30c9a8cb82c313048c70d272dcc4b766bfb0"
+    },
+    {
+      "source": "/Users/adams/projects/doltgres-rl/dolt/tooling/results/run_2026-03-13_21-50-44.json",
+      "destination": "infrastructure/databases/doltgres/dolt/tooling/results/run_2026-03-13_21-50-44.json",
+      "sha256": "fb4ac19b8f5afc11579619738703fb2d24bb20aab6a79843142f1f3745c4b702"
+    },
+    {
+      "source": "/Users/adams/projects/doltgres-rl/dolt/tooling/results/run_2026-03-13_21-50-56.json",
+      "destination": "infrastructure/databases/doltgres/dolt/tooling/results/run_2026-03-13_21-50-56.json",
+      "sha256": "49c82c9069ef5a17476dbc24c8557199acab7dde4e7ad53495a1ea3960f52275"
+    },
+    {
+      "source": "/Users/adams/projects/doltgres-rl/dolt/tooling/results/run_2026-03-13_21-52-04.json",
+      "destination": "infrastructure/databases/doltgres/dolt/tooling/results/run_2026-03-13_21-52-04.json",
+      "sha256": "5d90f84ca1f05a67f3eefd3c9888b422315adeae7588ba6be7b9a66a61e8f899"
+    },
+    {
+      "source": "/Users/adams/projects/doltgres-rl/dolt/tooling/server.py",
+      "destination": "infrastructure/databases/doltgres/dolt/tooling/server.py",
+      "sha256": "d366df373fdc567253d360bb20b78e7ed9eed6769704b2ea48aacb96c5cabfa4"
+    },
+    {
+      "source": "/Users/adams/projects/doltgres-rl/dolt/tooling/utils.py",
+      "destination": "infrastructure/databases/doltgres/dolt/tooling/utils.py",
+      "sha256": "e9e78fb17d0d70ab32dbd854ee229a7bf6d88746cf043fd9c4b55c2adbbdbc37"
+    },
+    {
+      "source": "/Users/adams/projects/doltgres-rl/pyproject.toml",
+      "destination": "infrastructure/databases/doltgres/pyproject.toml",
+      "sha256": "0bcbdf2b07c2ebd153d25a0372d6b6f28eeaf1cf0464a6b1f798cc07a1e4edb6"
+    },
+    {
+      "source": "/Users/adams/projects/doltgres-rl/uv.lock",
+      "destination": "infrastructure/databases/doltgres/uv.lock",
+      "sha256": "066fa889952bf6dd4196626b146cbd3e46c4f9499e124289bea3b0872c39069f"
+    },
+    {
+      "source": "/Users/adams/projects/terminal2F/assets/docs/index.html",
+      "destination": "docs/index.html",
+      "sha256": "6bf95c494d94a88ee36f6e7ba3cbacf5e4ae4c56c5546b89ccd27708dfeb3ead"
+    },
+    {
+      "source": "/Users/adams/projects/terminal2F/assets/docs/.DS_Store",
+      "destination": "docs/.DS_Store",
+      "sha256": "5f89cb298859b1ae4ce8f95fe220ba7b294a824cfa1d82e8283ee5771552baa4"
+    },
+    {
+      "source": "/Users/adams/projects/terminal2F/assets/docs/edit.js",
+      "destination": "docs/edit.js",
+      "sha256": "6c30341bdf882264cc7e2d6a538c30dc91c340db355db33ed89e7e4cfafce5eb"
+    },
+    {
+      "source": "/Users/adams/projects/terminal2F/assets/docs/serve.py",
+      "destination": "docs/serve.py",
+      "sha256": "01b3aa50a6c134c8240a025402b8d142214ac99f7f4f804b122014ff2d78c557"
+    },
+    {
+      "source": "/Users/adams/projects/terminal2F/assets/docs/README.md",
+      "destination": "docs/README.md",
+      "sha256": "5110be87357848e7c6025f5c3722b9a23266fa3675febbddedf554da5b9c4a09"
+    },
+    {
+      "source": "/Users/adams/projects/terminal2F/assets/docs/STYLE.md",
+      "destination": "docs/STYLE.md",
+      "sha256": "85f4f4f4708034743cf641cd35f6ecb8e1093202d008afe5a65aec0b4d3abc3c"
+    },
+    {
+      "source": "/Users/adams/projects/terminal2F/assets/docs/recognizers/index.toml",
+      "destination": "docs/recognizers/index.toml",
+      "sha256": "91ff1b0533ee7f0a6d43313e736bfb4aa37f1647925af66666811d92b938e7a9"
+    },
+    {
+      "source": "/Users/adams/projects/terminal2F/assets/docs/recognizers/automata.md",
+      "destination": "docs/recognizers/automata.md",
+      "sha256": "97531ecc33a66391a2ac60efc30bd3671d4784536ba7a9aed4f2b29063f4b59e"
+    },
+    {
+      "source": "/Users/adams/projects/terminal2F/assets/docs/recognizers/automata.html",
+      "destination": "docs/recognizers/automata.html",
+      "sha256": "e9892d806b4e19795a124d5d04b375013d338e50265a5068970735ac858c6c51"
+    },
+    {
+      "source": "/Users/adams/projects/terminal2F/assets/docs/rl/doltgres_env.html",
+      "destination": "docs/rl/doltgres_env.html",
+      "sha256": "d3f53462557fd19e729b810e58c4421275775134261b82cb6ef62933e8cfd928"
+    },
+    {
+      "source": "/Users/adams/projects/terminal2F/assets/docs/rl/t2f_eval.html",
+      "destination": "docs/rl/t2f_eval.html",
+      "sha256": "f866f899ef9ad79fbe7eb3938f13228cce4a985dd054882b844190ef579941ce"
+    },
+    {
+      "source": "/Users/adams/projects/terminal2F/assets/docs/rl/index.html",
+      "destination": "docs/rl/index.html",
+      "sha256": "3baaef4f89c3a4d51cca112b8fd0695209508bce4ccf822b27b7bb6c8c9517ab"
+    },
+    {
+      "source": "/Users/adams/projects/terminal2F/assets/docs/rl/email_to_cc_bcc.md",
+      "destination": "environments/mailman/research-early.md",
+      "sha256": "a504bf312dbbf858236556807b2013f98da2c065a4072bdaf18819cf6fb9eb62"
+    },
+    {
+      "source": "/Users/adams/projects/terminal2F/assets/docs/rl/concepts_plus.html",
+      "destination": "docs/rl/concepts_plus.html",
+      "sha256": "7307ae85d613bba5a7f86a6955a27f0bb5e738cfc52fe75e98bb9a7633fb2df4"
+    },
+    {
+      "source": "/Users/adams/projects/terminal2F/assets/docs/rl/index.toml",
+      "destination": "docs/rl/index.toml",
+      "sha256": "9d84aeb8454f56c1d4da98007b0b068e7eb001dbfba358cdc01fe6ae82d4484c"
+    },
+    {
+      "source": "/Users/adams/projects/terminal2F/assets/docs/rl/pglite_env.html",
+      "destination": "docs/rl/pglite_env.html",
+      "sha256": "15e1084c34474e16a67279984b777f81c22596b99c1caec321b82dcf0ea54aaf"
+    },
+    {
+      "source": "/Users/adams/projects/terminal2F/assets/docs/rl/end_to_end.html",
+      "destination": "docs/rl/end_to_end.html",
+      "sha256": "9562da8acc50f5c5009c01dadc94711db31a8d475f908a60f82296ad096a867f"
+    },
+    {
+      "source": "/Users/adams/projects/terminal2F/assets/docs/rl/trainer.html",
+      "destination": "docs/rl/trainer.html",
+      "sha256": "bb32c02226eac3c6e21d6982ebb0c6ac0bd0e19d0a3a496882bd027b4e2fe3fb"
+    },
+    {
+      "source": "/Users/adams/projects/terminal2F/assets/docs/rl/email_to_cc_bcc.html",
+      "destination": "environments/mailman/research.html",
+      "sha256": "752cb87bbfd454eec5af741eeee3077c3c24d03133fcc0e6178a9f9b071abc2c"
+    },
+    {
+      "source": "/Users/adams/projects/terminal2F/assets/docs/rl/t2f_trainer.html",
+      "destination": "docs/rl/t2f_trainer.html",
+      "sha256": "6536e27fc9b6b44b80865b88e6be59e2484ac89a879bcc6605c21d7c2e05e943"
+    },
+    {
+      "source": "/Users/adams/projects/terminal2F/assets/docs/rl/fastmcp_drawings.html",
+      "destination": "docs/rl/fastmcp_drawings.html",
+      "sha256": "5fdcb7892a1d7b51a6a7d1cd3be4c27c4ef9b99deaeb261a44b4db9478aae90f"
+    },
+    {
+      "source": "/Users/adams/projects/terminal2F/assets/docs/rl/environments.html",
+      "destination": "docs/rl/environments.html",
+      "sha256": "5728092d55d15abf70b446bf6a6e1e120de383c6b8dc6ff9ccdfcbe03339c85d"
+    },
+    {
+      "source": "/Users/adams/projects/terminal2F/assets/docs/rl/sandboxes.html",
+      "destination": "docs/rl/sandboxes.html",
+      "sha256": "c4d6d225b370d73fe9fe7d467caf0f3dee94dcefc41ba1d09dbf195bceee3be2"
+    },
+    {
+      "source": "/Users/adams/projects/terminal2F/assets/docs/rl/doltgres.html",
+      "destination": "docs/rl/doltgres.html",
+      "sha256": "e32ef114acdacc87a21a5dd3460111f4a76a95cb1ff4f64a5446f756d62223a9"
+    },
+    {
+      "source": "/Users/adams/projects/terminal2F/assets/docs/rl/todo_verifiers_rl_extraction.md",
+      "destination": "docs/rl/todo_verifiers_rl_extraction.md",
+      "sha256": "65aec171bad3a2096e9cb874dbd23fb08ea9b3c3444cef7a949eb1471e49808c"
+    },
+    {
+      "source": "/Users/adams/projects/doltgres-rl/docs/EXTRACTION.json",
+      "destination": "infrastructure/databases/doltgres/provenance/EXTRACTION.json",
+      "sha256": "c228604cd1173b56cf6157741658699f3d132b5dfc4393ae6f8bae87010c1259"
+    },
+    {
+      "source": "/Users/adams/projects/doltgres-rl/docs/ORIGINAL_README.md",
+      "destination": "infrastructure/databases/doltgres/provenance/ORIGINAL_README.md",
+      "sha256": "bb1123987027d07b56e04e6b61b0ef51ca941f67980d72b8172c4fcc04415441"
+    },
+    {
+      "source": "/Users/adams/projects/terminal2F/assets/md_to_image.py",
+      "destination": "tools/md_to_image.py",
+      "sha256": "7351e46c39bdd859094beb3ebca040fd5bd50996d6f117598568289288e116df"
+    }
+  ]
+}

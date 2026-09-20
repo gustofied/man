@@ -216,3 +216,9 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+# Local artifacts
+.DS_Store
+.env.*
+!.env.example
+bin/

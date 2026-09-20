@@ -1,0 +1,337 @@
+[
+  {
+    "step": 0,
+    "timing": {
+      "create": 0.072,
+      "work": 0.199,
+      "delete": 0.035,
+      "total": 0.306
+    },
+    "rollouts": [
+      {
+        "world": "world_0",
+        "world_hash": "hu9b9qnom26hgp8lf191fnjigq36gjif",
+        "branch": "s0_world_0_r1",
+        "user": "user_1",
+        "commit_hash": "ba57g4k97v7pqvbieoim53qkgubdr48c",
+        "rows": 10,
+        "duration_ms": 174
+      },
+      {
+        "world": "world_2",
+        "world_hash": "3g88dejvik4fril1usol379cirak5ohd",
+        "branch": "s0_world_2_r0",
+        "user": "user_0",
+        "commit_hash": "18hmhhns0qefhhs02ef3iiads02jcvef",
+        "rows": 10,
+        "duration_ms": 177
+      },
+      {
+        "world": "world_1",
+        "world_hash": "9kboierethr0rc0lu4n9gmchup4te3rt",
+        "branch": "s0_world_1_r0",
+        "user": "user_0",
+        "commit_hash": "ia75p72fci1ouh4tlagggvaeh7s961as",
+        "rows": 10,
+        "duration_ms": 179
+      },
+      {
+        "world": "world_0",
+        "world_hash": "hu9b9qnom26hgp8lf191fnjigq36gjif",
+        "branch": "s0_world_0_r0",
+        "user": "user_0",
+        "commit_hash": "qj7qh9m2tdj7iaphv7b735mmh4s0frjl",
+        "rows": 10,
+        "duration_ms": 182
+      },
+      {
+        "world": "world_1",
+        "world_hash": "9kboierethr0rc0lu4n9gmchup4te3rt",
+        "branch": "s0_world_1_r1",
+        "user": "user_1",
+        "commit_hash": "1gv3ank55tvekmgif4c5t1m7cig1gpvj",
+        "rows": 10,
+        "duration_ms": 184
+      },
+      {
+        "world": "world_2",
+        "world_hash": "3g88dejvik4fril1usol379cirak5ohd",
+        "branch": "s0_world_2_r1",
+        "user": "user_1",
+        "commit_hash": "gu774ccnmagfnr0n5fj1gdeul1fl979u",
+        "rows": 10,
+        "duration_ms": 195
+      }
+    ],
+    "mem_mb": 38.6,
+    "disk_mb": 1.2
+  },
+  {
+    "step": 1,
+    "timing": {
+      "create": 0.073,
+      "work": 0.188,
+      "delete": 0.032,
+      "total": 0.293
+    },
+    "rollouts": [
+      {
+        "world": "world_0",
+        "world_hash": "hu9b9qnom26hgp8lf191fnjigq36gjif",
+        "branch": "s1_world_0_r1",
+        "user": "user_1",
+        "commit_hash": "eqgcuumfehcgjakpq5500bahl1hoccs7",
+        "rows": 10,
+        "duration_ms": 170
+      },
+      {
+        "world": "world_1",
+        "world_hash": "9kboierethr0rc0lu4n9gmchup4te3rt",
+        "branch": "s1_world_1_r0",
+        "user": "user_0",
+        "commit_hash": "dub1n9jsutphecq88guk96rq90q0380u",
+        "rows": 10,
+        "duration_ms": 173
+      },
+      {
+        "world": "world_0",
+        "world_hash": "hu9b9qnom26hgp8lf191fnjigq36gjif",
+        "branch": "s1_world_0_r0",
+        "user": "user_0",
+        "commit_hash": "t7sur8bu3uolanj0luropmhvfs7nshj3",
+        "rows": 10,
+        "duration_ms": 179
+      },
+      {
+        "world": "world_2",
+        "world_hash": "3g88dejvik4fril1usol379cirak5ohd",
+        "branch": "s1_world_2_r0",
+        "user": "user_0",
+        "commit_hash": "nav6mrlgqeu2pdlcj999e9rtlustk2aa",
+        "rows": 10,
+        "duration_ms": 179
+      },
+      {
+        "world": "world_2",
+        "world_hash": "3g88dejvik4fril1usol379cirak5ohd",
+        "branch": "s1_world_2_r1",
+        "user": "user_1",
+        "commit_hash": "l9perjovhq1tm9qnqc3thav9f2bfe82d",
+        "rows": 10,
+        "duration_ms": 182
+      },
+      {
+        "world": "world_1",
+        "world_hash": "9kboierethr0rc0lu4n9gmchup4te3rt",
+        "branch": "s1_world_1_r1",
+        "user": "user_1",
+        "commit_hash": "nbmnnk5tnqr815qlkg85qmnjjsqbe0k1",
+        "rows": 10,
+        "duration_ms": 186
+      }
+    ],
+    "mem_mb": 39.4,
+    "disk_mb": 1.2
+  },
+  {
+    "step": 2,
+    "timing": {
+      "create": 0.071,
+      "work": 0.185,
+      "delete": 0.036,
+      "total": 0.292
+    },
+    "rollouts": [
+      {
+        "world": "world_1",
+        "world_hash": "9kboierethr0rc0lu4n9gmchup4te3rt",
+        "branch": "s2_world_1_r0",
+        "user": "user_0",
+        "commit_hash": "0t4ga8a02h47geb9a0ckh5kkuqo0ib90",
+        "rows": 10,
+        "duration_ms": 163
+      },
+      {
+        "world": "world_0",
+        "world_hash": "hu9b9qnom26hgp8lf191fnjigq36gjif",
+        "branch": "s2_world_0_r1",
+        "user": "user_1",
+        "commit_hash": "4mtn2kuu9cougoopns1b7unf98m72vis",
+        "rows": 10,
+        "duration_ms": 173
+      },
+      {
+        "world": "world_1",
+        "world_hash": "9kboierethr0rc0lu4n9gmchup4te3rt",
+        "branch": "s2_world_1_r1",
+        "user": "user_1",
+        "commit_hash": "p3hsui8kmmmnarsfjpa2iugogss8a5pp",
+        "rows": 10,
+        "duration_ms": 175
+      },
+      {
+        "world": "world_2",
+        "world_hash": "3g88dejvik4fril1usol379cirak5ohd",
+        "branch": "s2_world_2_r0",
+        "user": "user_0",
+        "commit_hash": "hjl5gjc5b2h5toov5125j4rk3ai749l4",
+        "rows": 10,
+        "duration_ms": 178
+      },
+      {
+        "world": "world_0",
+        "world_hash": "hu9b9qnom26hgp8lf191fnjigq36gjif",
+        "branch": "s2_world_0_r0",
+        "user": "user_0",
+        "commit_hash": "i1of0hcea2rp951inmaaup6qt1vvarg9",
+        "rows": 10,
+        "duration_ms": 182
+      },
+      {
+        "world": "world_2",
+        "world_hash": "3g88dejvik4fril1usol379cirak5ohd",
+        "branch": "s2_world_2_r1",
+        "user": "user_1",
+        "commit_hash": "juff0laljganc7f944ggupjc9c1v5g21",
+        "rows": 10,
+        "duration_ms": 184
+      }
+    ],
+    "mem_mb": 40.3,
+    "disk_mb": 1.2
+  },
+  {
+    "step": 3,
+    "timing": {
+      "create": 0.069,
+      "work": 0.195,
+      "delete": 0.037,
+      "total": 0.301
+    },
+    "rollouts": [
+      {
+        "world": "world_0",
+        "world_hash": "hu9b9qnom26hgp8lf191fnjigq36gjif",
+        "branch": "s3_world_0_r1",
+        "user": "user_1",
+        "commit_hash": "ui80912b1mvtafetcg8vlkj2sqf02nhe",
+        "rows": 10,
+        "duration_ms": 177
+      },
+      {
+        "world": "world_0",
+        "world_hash": "hu9b9qnom26hgp8lf191fnjigq36gjif",
+        "branch": "s3_world_0_r0",
+        "user": "user_0",
+        "commit_hash": "rbl4aelbc6jmo9f4evpadbvt88br4lik",
+        "rows": 10,
+        "duration_ms": 180
+      },
+      {
+        "world": "world_2",
+        "world_hash": "3g88dejvik4fril1usol379cirak5ohd",
+        "branch": "s3_world_2_r1",
+        "user": "user_1",
+        "commit_hash": "01uilqjgg0g3u8rs1f1insr0vbj4vtsk",
+        "rows": 10,
+        "duration_ms": 181
+      },
+      {
+        "world": "world_2",
+        "world_hash": "3g88dejvik4fril1usol379cirak5ohd",
+        "branch": "s3_world_2_r0",
+        "user": "user_0",
+        "commit_hash": "flb899raqe088v8k6fmtv3ctchnov3q1",
+        "rows": 10,
+        "duration_ms": 185
+      },
+      {
+        "world": "world_1",
+        "world_hash": "9kboierethr0rc0lu4n9gmchup4te3rt",
+        "branch": "s3_world_1_r1",
+        "user": "user_1",
+        "commit_hash": "82q2f00dhjg6o3cho7bk8tbuppf3jio2",
+        "rows": 10,
+        "duration_ms": 191
+      },
+      {
+        "world": "world_1",
+        "world_hash": "9kboierethr0rc0lu4n9gmchup4te3rt",
+        "branch": "s3_world_1_r0",
+        "user": "user_0",
+        "commit_hash": "hedu3bo176mrk2u5g3o34hkc0o6leae2",
+        "rows": 10,
+        "duration_ms": 194
+      }
+    ],
+    "mem_mb": 40.3,
+    "disk_mb": 1.2
+  },
+  {
+    "step": 4,
+    "timing": {
+      "create": 0.068,
+      "work": 0.196,
+      "delete": 0.035,
+      "total": 0.299
+    },
+    "rollouts": [
+      {
+        "world": "world_0",
+        "world_hash": "hu9b9qnom26hgp8lf191fnjigq36gjif",
+        "branch": "s4_world_0_r1",
+        "user": "user_1",
+        "commit_hash": "7p3tib49ld9j5fs5jcb30gcf6ipuk14g",
+        "rows": 10,
+        "duration_ms": 165
+      },
+      {
+        "world": "world_0",
+        "world_hash": "hu9b9qnom26hgp8lf191fnjigq36gjif",
+        "branch": "s4_world_0_r0",
+        "user": "user_0",
+        "commit_hash": "532hd3ml6lqc09m15bpvspcnjvs7shnb",
+        "rows": 10,
+        "duration_ms": 172
+      },
+      {
+        "world": "world_2",
+        "world_hash": "3g88dejvik4fril1usol379cirak5ohd",
+        "branch": "s4_world_2_r1",
+        "user": "user_1",
+        "commit_hash": "sle28ao4qr408p8uj9k7l7btblt1pl6k",
+        "rows": 10,
+        "duration_ms": 182
+      },
+      {
+        "world": "world_1",
+        "world_hash": "9kboierethr0rc0lu4n9gmchup4te3rt",
+        "branch": "s4_world_1_r1",
+        "user": "user_1",
+        "commit_hash": "r2luejrgmg0k56qo5qvvkufv4mm6q5t9",
+        "rows": 10,
+        "duration_ms": 186
+      },
+      {
+        "world": "world_1",
+        "world_hash": "9kboierethr0rc0lu4n9gmchup4te3rt",
+        "branch": "s4_world_1_r0",
+        "user": "user_0",
+        "commit_hash": "ldmgb41nh9gricefh5an6rqdpnkn9nn5",
+        "rows": 10,
+        "duration_ms": 192
+      },
+      {
+        "world": "world_2",
+        "world_hash": "3g88dejvik4fril1usol379cirak5ohd",
+        "branch": "s4_world_2_r0",
+        "user": "user_0",
+        "commit_hash": "4pm4dcfg2t7o18npmdck9jp2j8cihasp",
+        "rows": 10,
+        "duration_ms": 194
+      }
+    ],
+    "mem_mb": 41.1,
+    "disk_mb": 1.2
+  }
+]

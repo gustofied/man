@@ -1,0 +1,31 @@
+title = "RL"
+
+[[groups]]
+name = "Setup"
+docs = [
+    { file = "end_to_end", title = "End-to-End" },
+    { file = "t2f_trainer", title = "t2f-trainer" },
+    { file = "t2f_eval", title = "t2f eval" },
+]
+
+[[groups]]
+name = "Concepts"
+docs = [
+    { file = "trainer", title = "Trainer" },
+    { file = "reinforcement_learning", title = "Reinforcement Learning" },
+    { file = "environments", title = "Environments" },
+    { file = "sandboxes", title = "Sandboxes" },
+    { file = "concepts_plus", title = "Concepts+" },
+]
+
+[[groups]]
+name = "Environments"
+docs = [
+    { file = "doltgres_env", title = "2. Doltgres" },
+    { file = "pglite_env", title = "3. PGlite" },
+    { file = "fastmcp_drawings", title = "4. Drawing" },
+]
+
+[[groups]]
+name = "TODO"
+docs = []

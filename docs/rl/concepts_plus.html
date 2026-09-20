@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Concepts+</title>
+<style>html { font-size: 90%; } 
+  @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500&display=swap');
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Palatino Linotype', 'Book Antiqua', Palatino, serif;
+    font-size: 14.5px;
+    line-height: 1.72;
+    color: #2a2a2a;
+    background: #fdfcfa;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 72px 1rem 120px;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  a.back {
+    font-family: 'JetBrains Mono', monospace; font-size: 9.5px;
+    color: #bbb; text-decoration: none; letter-spacing: 0.5px;
+  }
+  a.back:hover { color: #1a1a1a; }
+
+  .memo-head {
+    border-top: 2.5px solid #1a1a1a;
+    border-bottom: none;
+    padding: 20px 0 0;
+    margin-bottom: 0;
+  }
+  .memo-head h2 {
+    font-size: 1.6rem;
+    font-weight: normal;
+    color: #333;
+    line-height: 1.25;
+    margin: 0;
+  }
+  .memo-sub {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    color: #999;
+    letter-spacing: 0.8px;
+    margin-top: 4px;
+  }
+
+  .header-fig {
+    margin: 16px 0 0;
+    overflow: hidden;
+    border-radius: 2px;
+  }
+  .header-stack {
+    position: relative;
+    height: 220px;
+  }
+  .header-stack img {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    height: 220px;
+    object-fit: cover;
+    display: block;
+  }
+  .header-stack .l4 { width: 100%; opacity: 0.5; object-position: center 30%; }
+  .header-stack .l3 { width: 98%; opacity: 0.7; object-position: center 30%; }
+  .header-stack .l2 { width: 96%; opacity: 0.85; object-position: center 30%; }
+  .header-stack .l1 { width: 94%; opacity: 1; object-position: center 40%; }
+  .header-fig figcaption {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    color: #bbb;
+    letter-spacing: 0.5px;
+    margin-top: 8px;
+    text-align: center;
+  }
+  .header-fig figcaption a {
+    color: #bbb;
+    text-decoration: underline;
+  }
+
+  .toc {
+    margin: 32px 0 40px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    color: #999;
+    letter-spacing: 0.3px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px 20px;
+    align-items: baseline;
+  }
+  .toc a {
+    color: #666;
+    text-decoration: none;
+  }
+  .toc a:hover {
+    color: #1a1a1a;
+    text-decoration: none;
+  }
+  .toc .toc-num {
+    color: #aaa;
+    font-size: 9px;
+    margin-right: 3px;
+  }
+
+  h3 {
+    font-size: 1.3rem;
+    font-weight: normal;
+    color: #333;
+    margin: 64px 0 10px;
+  }
+  h3 .num {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    font-weight: 400;
+    color: #aaa;
+    letter-spacing: 1px;
+    display: block;
+    margin-bottom: 2px;
+  }
+  h4 {
+    font-size: 1.1rem;
+    font-weight: normal;
+    color: #333;
+    margin: 44px 0 6px;
+  }
+  h4 .sub {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 9px;
+    font-weight: 400;
+    color: #bbb;
+    letter-spacing: 0.5px;
+    margin-right: 6px;
+  }
+  p { margin: 14px 0; }
+  .lede { font-size: 15px; color: #555; line-height: 1.68; }
+  a { color: #268bd2; text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  em { color: #555; }
+
+  code {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    color: #1a1a1a;
+    background: #f5f4f0;
+    padding: 1.5px 5px;
+    border-bottom: 1px solid #ddd;
+  }
+  .code-block {
+    position: relative;
+    margin: 24px 0;
+  }
+  .code-block pre {
+    margin: 0;
+  }
+  .code-lang {
+    position: absolute;
+    top: 0;
+    right: 0;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 8.5px;
+    font-weight: 400;
+    color: #bbb;
+    letter-spacing: 0.8px;
+    text-transform: uppercase;
+    padding: 5px 10px;
+    user-select: none;
+  }
+  pre {
+    margin: 24px 0;
+    padding: 18px 22px;
+    background: #f5f4f0;
+    border: 0.5px solid #e8e4de;
+    overflow-x: auto;
+    line-height: 1.55;
+  }
+  pre code {
+    background: none;
+    padding: 0;
+    border: none;
+    font-size: 12px;
+  }
+  strong { font-weight: 700; color: #1a1a1a; }
+
+  /* ── Tables ── */
+  .ch-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0 0;
+    font-size: 13.5px;
+  }
+  .ch-table th {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 9px;
+    font-weight: 400;
+    color: #aaa;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    text-align: left;
+    padding: 6px 16px;
+    border-bottom: 1px solid #1a1a1a;
+  }
+  .ch-table td {
+    padding: 10px 16px;
+    border-bottom: 0.5px solid #eee;
+    vertical-align: top;
+  }
+  .ch-table .mono {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    white-space: nowrap;
+  }
+
+  /* ── Separators ── */
+  .ch-table .pos { color: #2a7a2a; }
+  .ch-table .neg { color: #b33a3a; }
+
+  .formula {
+    background: none;
+    border: none;
+    border-top: 1px solid #1a1a1a;
+    padding: 12px 0 0;
+    margin: 14px 0;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12.5px;
+    line-height: 1.6;
+    color: #333;
+  }
+  .formula .label {
+    font-size: 8px;
+    color: #aaa;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    display: block;
+    margin-bottom: 6px;
+  }
+
+  .sep {
+    border: none;
+    text-align: center;
+    margin: 56px 0;
+    line-height: 0;
+  }
+  .sep::after {
+    content: '\2022\2009\2009\2022\2009\2009\2022';
+    font-size: 10px;
+    color: #ccc;
+    letter-spacing: 4px;
+  }
+
+  /* ── Footer ── */
+  .colophon {
+    border-top: 0.5px solid #ddd;
+    margin-top: 64px;
+    padding-top: 16px;
+  }
+  .colophon p {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 9px;
+    color: #ccc;
+    letter-spacing: 0.5px;
+  }
+
+  /* ── Responsive ── */
+  @media (max-width: 768px) {
+    body { padding: 16px 0.75rem 80px; }
+    .memo-head h2 { font-size: 1.15rem; }
+    h3 { font-size: 1.1rem; margin: 36px 0 6px; }
+    h4 { font-size: 1rem; }
+    p { font-size: 13.5px; }
+    pre {
+      padding: 12px 14px;
+      font-size: 10.5px;
+      margin: 16px -0.75rem;
+      width: calc(100% + 1.5rem);
+      border-left: none;
+      border-right: none;
+      border-radius: 0;
+    }
+    pre code { font-size: 10.5px; }
+    .ch-table {
+      font-size: 12px;
+      display: block;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+    }
+    .ch-table th, .ch-table td { padding: 6px 8px; }
+    .header-fig img { height: 160px; }
+  }
+</style>
+<link rel="stylesheet" href="/navigation.css"><meta name="viewport" content="width=device-width, initial-scale=1"></head>
+<body><nav class="docs-nav" aria-label="Sections"><a href="/">Docs</a><a href="/environments/">Environments</a><a href="/infrastructure/">Infrastructure</a><a href="/rl/" aria-current="page">RL</a></nav><nav class="docs-crumb" aria-label="Breadcrumb"><a href="/rl/">RL</a><span>/</span><span aria-current="page">Concepts+</span></nav>
+
+
+
+<div class="memo-head">
+  <h2>Concepts+</h2>
+</div>
+
+<figure class="header-fig">
+  <div class="header-stack">
+    <img class="l1" src="https://www.bnf.fr/sites/default/files/2019-02/Cosmographie_universelle_selon_les_navigateurs_%5B...%5DLe_Testu_btv1b8447838j_16.jpg" alt="Cosmographie universelle, Guillaume Le Testu, 1556">
+  </div>
+  <figcaption>Guillaume Le Testu, <em style="color:#bbb">Cosmographie universelle</em>, 1556.</figcaption>
+</figure>
+
+<div class="toc">
+  <a href="#s-chat-templates"><span class="toc-num">I</span>Chat Templates</a>
+  <a href="#s-grpo"><span class="toc-num">II</span>How GRPO Works</a>
+  <a href="#s-drgrpo"><span class="toc-num">III</span>Dr.GRPO</a>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════
+     I. CHAT TEMPLATES
+     ═══════════════════════════════════════════════════════════ -->
+
+<h3 id="s-chat-templates"><span class="num">I</span>Chat Templates</h3>
+<p class="lede">Three representations of the same conversation, each one step closer to what the model actually sees.</p>
+
+<h4><span class="sub">a</span>Message List</h4>
+
+<p>The API format. Structured, readable, model-agnostic. This is what your env writes, what the verifier sends to vLLM.</p>
+
+<div class="code-block">
+  <span class="code-lang">json</span>
+  <pre><code>[
+  {<span style="color:#268bd2">"role"</span>: <span style="color:#2aa198">"system"</span>, <span style="color:#268bd2">"content"</span>: <span style="color:#2aa198">"You are a helpful assistant."</span>},
+  {<span style="color:#268bd2">"role"</span>: <span style="color:#2aa198">"user"</span>, <span style="color:#268bd2">"content"</span>: <span style="color:#2aa198">"What is the capital of France?"</span>},
+  {<span style="color:#268bd2">"role"</span>: <span style="color:#2aa198">"assistant"</span>, <span style="color:#268bd2">"content"</span>: <span style="color:#2aa198">"Paris."</span>},
+  {<span style="color:#268bd2">"role"</span>: <span style="color:#2aa198">"user"</span>, <span style="color:#268bd2">"content"</span>: <span style="color:#2aa198">"And Germany?"</span>},
+  {<span style="color:#268bd2">"role"</span>: <span style="color:#2aa198">"assistant"</span>, <span style="color:#268bd2">"content"</span>: <span style="color:#2aa198">"Berlin."</span>}
+]</code></pre>
+</div>
+
+<h4><span class="sub">b</span>Template-Rendered String</h4>
+
+<p>The tokenizer applies a Jinja template (stored in <code>tokenizer_config.json</code> on HuggingFace) and produces a raw string. Every model family has a different template. Qwen uses ChatML:</p>
+
+<div class="code-block">
+  <span class="code-lang">chatml</span>
+  <pre><code><span style="color:#b58900">&lt;|im_start|&gt;</span><span style="color:#268bd2">system</span>
+You are a helpful assistant.<span style="color:#b58900">&lt;|im_end|&gt;</span>
+<span style="color:#b58900">&lt;|im_start|&gt;</span><span style="color:#268bd2">user</span>
+What is the capital of France?<span style="color:#b58900">&lt;|im_end|&gt;</span>
+<span style="color:#b58900">&lt;|im_start|&gt;</span><span style="color:#268bd2">assistant</span>
+Paris.<span style="color:#b58900">&lt;|im_end|&gt;</span>
+<span style="color:#b58900">&lt;|im_start|&gt;</span><span style="color:#268bd2">user</span>
+And Germany?<span style="color:#b58900">&lt;|im_end|&gt;</span>
+<span style="color:#b58900">&lt;|im_start|&gt;</span><span style="color:#268bd2">assistant</span>
+Berlin.<span style="color:#b58900">&lt;|im_end|&gt;</span></code></pre>
+</div>
+
+<p>Same message list, completely different string per model family. Feed a model the wrong template format and it still runs &mdash; it just performs worse because the token patterns are unfamiliar.</p>
+
+<h4><span class="sub">c</span>Token IDs</h4>
+
+<p>The rendered string gets tokenized into integer IDs. This is the only thing that enters the model.</p>
+
+<div class="code-block">
+  <span class="code-lang">tokens</span>
+  <pre><code>[<span style="color:#d33682">151644</span>, <span style="color:#6c71c4">8948</span>, <span style="color:#6c71c4">198</span>, <span style="color:#6c71c4">2610</span>, <span style="color:#6c71c4">5765</span>, ..., <span style="color:#d33682">151645</span>, <span style="color:#6c71c4">198</span>, <span style="color:#d33682">151644</span>, <span style="color:#6c71c4">872</span>, <span style="color:#6c71c4">198</span>, ...]</code></pre>
+</div>
+
+<p>Delimiter strings like <code>&lt;|im_start|&gt;</code> are <strong>single tokens</strong>: <code>&lt;|im_start|&gt;</code> is token <code>151644</code> in Qwen, not a sequence of characters. The tokenizer has them in its vocabulary as special tokens. The model outputs logits over this same vocabulary at each position.</p>
+
+<h4><span class="sub">d</span>Why This Matters for Training</h4>
+
+<p>During <strong>generation</strong>, vLLM handles all three steps internally. You send message lists, it applies the template, tokenizes, generates, returns text.</p>
+
+<p>During <strong>training</strong>, the orchestrator reconstructs the exact same token sequence that vLLM generated &mdash; the full multi-turn conversation as one flat array of token IDs. It does this to:</p>
+
+<table class="ch-table">
+  <tr>
+    <th>What</th>
+    <th>Why</th>
+  </tr>
+  <tr>
+    <td class="mono">loss mask</td>
+    <td>0 for prompt/system/user/special tokens, 1 for assistant completion tokens</td>
+  </tr>
+  <tr>
+    <td class="mono">sampling logprobs</td>
+    <td>Align logprobs from vLLM generation time with the correct positions</td>
+  </tr>
+  <tr>
+    <td class="mono">trainer logprobs</td>
+    <td>Compute on the same sequence for the policy ratio</td>
+  </tr>
+</table>
+
+<p>If the trainer's tokenizer applies the template differently from vLLM's &mdash; even one extra newline or a missing BOS token &mdash; the token IDs shift and the logprobs are misaligned. The loss is computed on wrong positions. No error, just bad gradients.</p>
+
+<p>In practice this doesn't happen: both vLLM and the trainer load the same model from HuggingFace, same <code>tokenizer_config.json</code>, same Jinja template, same tokenization. They agree automatically.</p>
+
+<h4><span class="sub">e</span>Multi-Turn Masking</h4>
+
+<p>For single-turn, the flat sequence is prompt tokens then completion tokens. Simple mask. For multi-turn, the full conversation is one array:</p>
+
+<div class="code-block">
+  <span class="code-lang">mask</span>
+  <pre><code>[system] [user: question&#x2081;] [assistant: answer&#x2081;] [user: question&#x2082;] [assistant: answer&#x2082;]
+   0           0                    1                   0                    1</code></pre>
+</div>
+
+<p>All processed left-to-right in one forward pass during training. The orchestrator finds where each assistant turn starts and ends by applying the same template and locating the boundaries. If the boundaries are off by even one token, you're training on user tokens or skipping completion tokens.</p>
+
+<p>During generation it's incremental: vLLM generates turn 1, the env injects the follow-up, vLLM generates turn 2 with the full history. During training, the entire conversation is one sequence in a single forward pass.</p>
+
+<hr class="sep">
+
+
+<!-- ═══════════════════════════════════════════════════════════
+     II. HOW GRPO WORKS
+     ═══════════════════════════════════════════════════════════ -->
+
+<h3 id="s-grpo"><span class="num">II</span>How GRPO Works</h3>
+
+<p>The model tries it 3 times independently:</p>
+
+<table class="ch-table">
+  <tr>
+    <th></th>
+    <th>Answer</th>
+    <th>Correct?</th>
+    <th>Reward</th>
+  </tr>
+  <tr>
+    <td>Rollout 1</td>
+    <td class="mono">a, b, c, d</td>
+    <td>yes</td>
+    <td class="mono">1.0</td>
+  </tr>
+  <tr>
+    <td>Rollout 2</td>
+    <td class="mono">a, b, d, c</td>
+    <td>no</td>
+    <td class="mono">0.0</td>
+  </tr>
+  <tr>
+    <td>Rollout 3</td>
+    <td class="mono">a, b, c, d</td>
+    <td>yes</td>
+    <td class="mono">1.0</td>
+  </tr>
+</table>
+
+<p>Average reward: (1.0 + 0.0 + 1.0) / 3 = <strong>0.67</strong>. Now the advantage, how each rollout compares to the group mean:</p>
+
+<table class="ch-table" style="margin-top: 12px;">
+  <tr>
+    <th></th>
+    <th>Reward</th>
+    <th>Advantage</th>
+    <th></th>
+  </tr>
+  <tr>
+    <td>Rollout 1</td>
+    <td class="mono">1.0</td>
+    <td class="mono pos">+0.33</td>
+    <td style="color: #999; font-size: 13px;">better than average</td>
+  </tr>
+  <tr>
+    <td>Rollout 2</td>
+    <td class="mono">0.0</td>
+    <td class="mono neg">&minus;0.67</td>
+    <td style="color: #999; font-size: 13px;">worse than average</td>
+  </tr>
+  <tr>
+    <td>Rollout 3</td>
+    <td class="mono">1.0</td>
+    <td class="mono pos">+0.33</td>
+    <td style="color: #999; font-size: 13px;">better than average</td>
+  </tr>
+</table>
+
+<p><strong>Why this matters for RL:</strong> the model can look at rollout 1 vs rollout 2 and ask "what did I do differently?" The positive advantage says "do more of this", negative says "do less of this." It learns from its own successes and failures on the same problem.</p>
+
+<p>This is the core idea behind <strong>GRPO</strong> (Group Relative Policy Optimization). You don't need a separate reward model, you just compare the rollouts against each other within the group.</p>
+
+<hr class="sep">
+
+
+<!-- ═══════════════════════════════════════════════════════════
+     III. DR.GRPO
+     ═══════════════════════════════════════════════════════════ -->
+
+<h3 id="s-drgrpo"><span class="num">III</span>Dr.GRPO</h3>
+<p class="lede">Dr.GRPO (<a href="https://arxiv.org/abs/2503.20783" style="color: #268bd2; text-decoration: none;">Liu et al., 2025</a>) makes two adjustments to standard GRPO. Both are about fairness: making sure no single group or response dominates the gradient just because of scale.</p>
+
+<h4><span class="sub">a</span>Group Std Normalization</h4>
+
+<div style="display: flex; gap: 12px; margin: 18px 0;">
+  <div class="formula" style="flex: 1; margin: 0; border-top-color: #ccc;">
+    <span class="label">GRPO</span>
+    advantage = reward &minus; group_mean
+  </div>
+  <div class="formula" style="flex: 1; margin: 0;">
+    <span class="label">DR.GRPO</span>
+    advantage = (reward &minus; group_mean) / group_std
+  </div>
+</div>
+
+<p>Groups with high reward variance produce larger advantages and dominate the gradient. Example, two groups, 4 rollouts each:</p>
+
+<table class="ch-table" style="margin-top: 12px;">
+  <tr>
+    <th>Group</th>
+    <th>Rewards</th>
+    <th>Mean</th>
+    <th>Advantages</th>
+  </tr>
+  <tr>
+    <td>A</td>
+    <td class="mono">[0, 0, 0, 1]</td>
+    <td class="mono">0.25</td>
+    <td class="mono">[-0.25, -0.25, -0.25, 0.75]</td>
+  </tr>
+  <tr>
+    <td>B</td>
+    <td class="mono">[0.4, 0.5, 0.5, 0.6]</td>
+    <td class="mono">0.50</td>
+    <td class="mono">[-0.1, 0, 0, 0.1]</td>
+  </tr>
+</table>
+
+<p>Group A's advantages are 7x larger. Without normalization, the model mostly learns from Group A (the easy question where one rollout got lucky) and ignores Group B (where it's actually making steady progress with nuanced signal). Dividing by std scales both groups to similar magnitude, every prompt contributes equally to learning.</p>
+
+<p>Edge case: if all rollouts in a group score the same, std is 0. These groups get skipped (advantage = 0), which is correct, zero variance means no learning signal.</p>
+
+<h4><span class="sub">b</span>Response Length Normalization</h4>
+
+<p>Standard GRPO sums the loss over all tokens. Every token gets the same advantage, so longer responses have more impact on the gradient.</p>
+
+<table class="ch-table" style="margin-top: 12px;">
+  <tr>
+    <th></th>
+    <th>Tokens</th>
+    <th>Reward</th>
+    <th>Gradient weight</th>
+  </tr>
+  <tr>
+    <td>Rollout 1</td>
+    <td class="mono">400</td>
+    <td class="mono neg">0</td>
+    <td style="color: #999; font-size: 13px;">400 tokens of negative signal</td>
+  </tr>
+  <tr>
+    <td>Rollout 2</td>
+    <td class="mono">50</td>
+    <td class="mono pos">1</td>
+    <td style="color: #999; font-size: 13px;">50 tokens of positive signal</td>
+  </tr>
+  <tr>
+    <td>Rollout 3</td>
+    <td class="mono">200</td>
+    <td class="mono neg">0</td>
+    <td style="color: #999; font-size: 13px;">200 tokens of negative signal</td>
+  </tr>
+</table>
+
+<p>Without length normalization: 600 tokens of negative gradient vs 50 tokens of positive. The long wrong answer drowns out the short correct one. The model learns "don't be verbose" instead of "don't be wrong." With length normalization: each rollout's loss is divided by its token count, so each response contributes equally regardless of length.</p>
+
+<div class="colophon">
+  <p>CONCEPTS+</p>
+</div>
+
+    
+  </body>
+</html>

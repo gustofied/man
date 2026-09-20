@@ -1,0 +1,1379 @@
+<!doctype html>
+<html lang="en"><head>
+    <base href="https://www.adamsioud.com/projects/mailman.html">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="../images/index/paint1.png" type="image/png">
+    <meta name="color-scheme" content="light">
+    <title>Adam Sioud | Mailman</title>
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500&amp;display=swap">
+
+    <style>html { zoom: 0.80; }
+      main { margin-top: 0.85rem; }
+      :root {
+        --sand: #8a7d6b;
+        --sand-light: #f5f0ea;
+        --ink: #1a1a1a;
+        --stone: #5c5347;
+        --warm-grey: #d6cfc6;
+      }
+
+      .post-label {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        font-family: 'JetBrains Mono', monospace;
+        font-size: 8px;
+        font-weight: 400;
+        color: #999;
+        letter-spacing: 1.5px;
+        text-transform: uppercase;
+        margin-bottom: 0.9rem;
+      }
+      .post-label::before {
+        content: '';
+        width: 30px;
+        flex-shrink: 0;
+        border-top: 2.5px solid var(--ink);
+      }
+      .post-label::after {
+        content: '';
+        flex: 1;
+        border-top: 2.5px solid var(--ink);
+      }
+
+      /* cover image */
+      .page-banner { margin-bottom: 0; border-radius: 0; }
+      .page-banner img {
+        width: 100%;
+        display: block;
+      }
+
+      /* top strip */
+      .top-strip {
+        display: flex;
+        align-items: baseline;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 0.5rem 2rem;
+        padding: 0.6rem 0;
+        margin-bottom: 0;
+        font-family: 'JetBrains Mono', monospace;
+        font-size: 9.5px;
+        letter-spacing: 0.5px;
+        text-transform: uppercase;
+      }
+      .top-strip-links {
+        display: flex;
+        gap: 1rem;
+        flex-wrap: wrap;
+      }
+      .top-strip-links a {
+        color: #333;
+        text-decoration: none;
+        transition: color 0.15s ease;
+        background: linear-gradient(to top, rgba(138,125,107,0.2) 40%, transparent 40%);
+      }
+      .top-strip-links a:hover {
+        background: linear-gradient(to top, rgba(138,125,107,0.35) 40%, transparent 40%);
+      }
+      .top-strip-toc {
+        display: flex;
+        gap: 1rem;
+        flex-wrap: wrap;
+      }
+      .top-strip-toc a {
+        color: #666;
+        text-decoration: none;
+        transition: color 0.15s ease;
+        background: linear-gradient(to top, rgba(138,125,107,0.15) 40%, transparent 40%);
+      }
+      .top-strip-toc a:hover { color: #333; }
+
+      /* article */
+      .blog-post {
+        max-width: 1100px;
+        margin: 0 auto;
+        padding: 0 0 2.5rem;
+      }
+      .article-content {
+        max-width: 100%;
+        margin: 0 auto;
+      }
+      .article-content p {
+        font-size: 1.02rem;
+        line-height: 1.7;
+        color: var(--ink);
+        margin-bottom: 1rem;
+      }
+      .article-content a {
+        color: var(--sand) !important;
+        text-decoration: underline;
+        text-underline-offset: 2px;
+      }
+      .article-content a:hover {
+        color: var(--stone) !important;
+      }
+
+      /* section headers */
+      .section-h {
+        margin: 1.5rem 0 0.6rem;
+        padding: 0.6rem 0 0.4rem;
+        border-top: 2px solid var(--sand);
+        border-bottom: 0.5px solid var(--warm-grey);
+        color: var(--ink);
+        font-size: 1.3rem;
+        font-weight: normal;
+      }
+      #s-what { margin-top: 0.2rem; }
+      .section-h span {
+        background: linear-gradient(to top, rgba(138,125,107,0.15) 40%, transparent 40%);
+        padding: 0 2px;
+      }
+
+      /* tables */
+      .m-table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 16px 0;
+        font-size: 13.5px;
+      }
+      .m-table th {
+        font-family: 'JetBrains Mono', monospace;
+        font-size: 8px;
+        font-weight: 400;
+        color: var(--sand);
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        text-align: left;
+        padding: 6px 14px;
+        border-bottom: 1px solid var(--ink);
+      }
+      .m-table td {
+        padding: 8px 14px;
+        border-bottom: 0.5px solid var(--warm-grey);
+        vertical-align: top;
+      }
+      .m-table .mono {
+        font-family: 'JetBrains Mono', monospace;
+        font-size: 12px;
+        white-space: nowrap;
+      }
+
+      /* highlight box */
+      .highlight-box {
+        background: var(--sand-light);
+        border-left: 3px solid var(--sand);
+        padding: 1rem 1.25rem;
+        margin: 1.5rem 0;
+      }
+      .highlight-box p {
+        margin: 0.5rem 0;
+        color: var(--ink);
+      }
+
+      /* subsection headings */
+      .article-content h4 {
+        font-size: 0.95rem;
+        font-weight: 600;
+        color: var(--ink);
+        margin: 2rem 0 0.4rem;
+        padding: 0;
+      }
+      .article-content .m-table + h4,
+      .article-content .code-block + h4 {
+        margin-top: 2rem;
+      }
+      .article-content h4 + .m-table {
+        margin-top: 0.5rem;
+      }
+      .article-content ol {
+        margin: 0.6rem 0 0;
+        padding-left: 1.4rem;
+        line-height: 1.7;
+      }
+      .article-content ol + p,
+      .article-content ol + h4 {
+        margin-top: 1.6rem;
+      }
+
+      /* code */
+      .article-content pre {
+        background: var(--sand-light);
+        border: 1px solid var(--warm-grey);
+        padding: 0.6rem 1rem;
+        font-size: 0.82rem;
+        line-height: 1.5;
+        overflow-x: auto;
+      }
+      .article-content .code-block {
+        position: relative;
+        margin: 20px 0;
+      }
+      .article-content .code-block pre { margin: 0; }
+      .article-content .code-lang {
+        position: absolute;
+        top: 6px;
+        right: 10px;
+        font-family: 'JetBrains Mono', monospace;
+        font-size: 8.5px;
+        font-weight: 400;
+        color: #bbb;
+        letter-spacing: 0.8px;
+        text-transform: uppercase;
+        pointer-events: none;
+      }
+
+      /* back button */
+      .collection-btn {
+        color: var(--sand);
+      }
+
+      @media (max-width: 768px) {
+        .top-strip {
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 0.25rem;
+          padding: 0.4rem 0;
+          font-size: 8.5px;
+        }
+        .top-strip-links,
+        .top-strip-toc {
+          gap: 0.5rem;
+          flex-wrap: wrap;
+        }
+        .section-h {
+          font-size: 1.1rem;
+          margin: 1rem 0 0.5rem;
+          padding: 0.4rem 0 0.3rem;
+        }
+      }
+
+      /* ── Doc sections (end-to-end, environments, email-doc, doltgres) ── */
+      #s-end-to-end,
+      #s-environments,
+      #s-email-doc,
+      #s-doltgres {
+        margin-top: 2rem;
+        padding-top: 0.5rem;
+        border-top: 2px solid var(--sand);
+      }
+
+      #s-end-to-end .doc-section-label,
+      #s-environments .doc-section-label,
+      #s-email-doc .doc-section-label,
+      #s-doltgres .doc-section-label {
+        font-family: 'JetBrains Mono', monospace;
+        font-size: 8px;
+        color: #aaa;
+        letter-spacing: 1.5px;
+        text-transform: uppercase;
+        margin-bottom: 1.5rem;
+      }
+
+      /* memo-head */
+      #s-end-to-end .memo-head,
+      #s-environments .memo-head,
+      #s-email-doc .memo-head,
+      #s-doltgres .memo-head {
+        border-top: 2.5px solid #1a1a1a;
+        border-bottom: none;
+        padding: 20px 0 0;
+        margin-bottom: 0;
+      }
+      #s-environments .memo-head {
+        border-bottom: 0.5px solid #1a1a1a;
+        padding: 20px 0 16px;
+        margin-bottom: 40px;
+      }
+      #s-end-to-end .memo-head h2,
+      #s-email-doc .memo-head h2,
+      #s-doltgres .memo-head h2 {
+        font-size: 1.6rem;
+        font-weight: normal;
+        color: #333;
+        line-height: 1.25;
+        margin: 0;
+      }
+      #s-environments .memo-head h1 {
+        font-size: 1.6rem;
+        font-weight: normal;
+        color: #333;
+        line-height: 1.25;
+        margin: 0;
+      }
+      #s-end-to-end .memo-sub,
+      #s-environments .memo-sub,
+      #s-email-doc .memo-sub,
+      #s-doltgres .memo-sub {
+        font-family: 'JetBrains Mono', monospace;
+        font-size: 10px;
+        color: #999;
+        letter-spacing: 0.8px;
+        margin-top: 4px;
+      }
+
+      /* header figure */
+      #s-end-to-end .header-fig,
+      #s-email-doc .header-fig,
+      #s-doltgres .header-fig {
+        margin: 16px 0 0;
+        overflow: hidden;
+        border-radius: 2px;
+      }
+      #s-end-to-end .header-stack,
+      #s-email-doc .header-stack,
+      #s-doltgres .header-stack {
+        position: relative;
+        height: 220px;
+      }
+      #s-end-to-end .header-stack img,
+      #s-email-doc .header-stack img,
+      #s-doltgres .header-stack img {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        height: 220px;
+        object-fit: cover;
+        display: block;
+      }
+      #s-end-to-end .header-stack .l4,
+      #s-email-doc .header-stack .l4,
+      #s-doltgres .header-stack .l4 { width: 100%; opacity: 0.5; object-position: center 30%; }
+      #s-end-to-end .header-stack .l3,
+      #s-email-doc .header-stack .l3,
+      #s-doltgres .header-stack .l3 { width: 98%; opacity: 0.7; object-position: center 30%; }
+      #s-end-to-end .header-stack .l2,
+      #s-email-doc .header-stack .l2,
+      #s-doltgres .header-stack .l2 { width: 96%; opacity: 0.85; object-position: center 30%; }
+      #s-end-to-end .header-stack .l1 { width: 104%; opacity: 1; object-position: center 40%; clip-path: inset(0 5% 0 5%); }
+      #s-email-doc .header-stack .l1 { width: 94%; opacity: 1; }
+      #s-doltgres .header-stack .l1 { width: 94%; opacity: 1; }
+      #s-end-to-end .header-fig figcaption,
+      #s-email-doc .header-fig figcaption,
+      #s-doltgres .header-fig figcaption {
+        font-family: 'JetBrains Mono', monospace;
+        font-size: 11px;
+        color: #bbb;
+        letter-spacing: 0.5px;
+        margin-top: 8px;
+        text-align: center;
+      }
+      #s-end-to-end .header-fig figcaption em,
+      #s-email-doc .header-fig figcaption em,
+      #s-doltgres .header-fig figcaption em { color: #bbb; }
+
+      /* doc toc */
+      #s-end-to-end .toc,
+      #s-environments .toc,
+      #s-email-doc .toc,
+      #s-doltgres .toc {
+        margin: 32px 0 40px;
+        font-family: 'JetBrains Mono', monospace;
+        font-size: 10px;
+        color: #999;
+        letter-spacing: 0.3px;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px 20px;
+        align-items: baseline;
+      }
+      #s-end-to-end .toc a,
+      #s-environments .toc a,
+      #s-email-doc .toc a,
+      #s-doltgres .toc a {
+        color: #666;
+        text-decoration: none;
+      }
+      #s-end-to-end .toc a:hover,
+      #s-environments .toc a:hover,
+      #s-email-doc .toc a:hover,
+      #s-doltgres .toc a:hover { color: #1a1a1a; }
+      #s-end-to-end .toc .toc-num,
+      #s-environments .toc .toc-num,
+      #s-email-doc .toc .toc-num,
+      #s-doltgres .toc .toc-num {
+        color: #aaa;
+        font-size: 9px;
+        margin-right: 3px;
+      }
+
+      /* doc headings (h3, h4 inside doc divs; h2 for environments) */
+      #s-end-to-end h3,
+      #s-email-doc h3,
+      #s-doltgres h3 {
+        font-size: 1.3rem;
+        font-weight: normal;
+        color: #333;
+        margin: 64px 0 10px;
+        border-top: none;
+        border-bottom: none;
+        padding: 0;
+      }
+      #s-environments h2 {
+        font-size: 1.3rem;
+        font-weight: normal;
+        color: #333;
+        margin: 56px 0 6px;
+      }
+      #s-environments h3 {
+        font-size: 1rem;
+        font-weight: normal;
+        color: #333;
+        margin: 32px 0 4px;
+        border-top: none;
+        border-bottom: none;
+        padding: 0;
+      }
+      #s-end-to-end h3 .num,
+      #s-email-doc h3 .num,
+      #s-doltgres h3 .num,
+      #s-environments h2 .num {
+        font-family: 'JetBrains Mono', monospace;
+        font-size: 10px;
+        font-weight: 400;
+        color: #aaa;
+        letter-spacing: 1px;
+        display: block;
+        margin-bottom: 2px;
+      }
+      #s-end-to-end h4,
+      #s-environments h4,
+      #s-email-doc h4,
+      #s-doltgres h4 {
+        font-size: 1.1rem;
+        font-weight: normal;
+        color: #333;
+        margin: 44px 0 6px;
+      }
+      #s-environments h3 .sub,
+      #s-end-to-end h4 .sub,
+      #s-environments h4 .sub,
+      #s-email-doc h4 .sub,
+      #s-doltgres h4 .sub {
+        font-family: 'JetBrains Mono', monospace;
+        font-size: 9px;
+        font-weight: 400;
+        color: #bbb;
+        letter-spacing: 0.5px;
+        margin-right: 6px;
+      }
+
+      /* doc paragraph + lede */
+      #s-end-to-end p,
+      #s-environments p,
+      #s-email-doc p,
+      #s-doltgres p {
+        margin: 14px 0;
+        font-size: 1.02rem;
+        line-height: 1.7;
+        color: var(--ink);
+      }
+      #s-end-to-end .lede,
+      #s-environments .lede,
+      #s-email-doc .lede,
+      #s-doltgres .lede {
+        font-size: 15px;
+        color: #555;
+        line-height: 1.68;
+      }
+
+      /* doc links */
+      #s-end-to-end a,
+      #s-environments a,
+      #s-email-doc a,
+      #s-doltgres a {
+        color: #268bd2;
+        text-decoration: none;
+      }
+      #s-end-to-end a:hover,
+      #s-environments a:hover,
+      #s-email-doc a:hover,
+      #s-doltgres a:hover { text-decoration: underline; }
+
+      /* doc code */
+      #s-end-to-end code,
+      #s-environments code,
+      #s-email-doc code,
+      #s-doltgres code {
+        font-family: 'JetBrains Mono', monospace;
+        font-size: 12px;
+        color: #1a1a1a;
+        background: #f5f4f0;
+        padding: 1.5px 5px;
+        border-bottom: 1px solid #ddd;
+      }
+      #s-end-to-end .code-block,
+      #s-email-doc .code-block,
+      #s-doltgres .code-block {
+        position: relative;
+        margin: 24px 0;
+      }
+      #s-end-to-end .code-block pre,
+      #s-email-doc .code-block pre,
+      #s-doltgres .code-block pre { margin: 0; }
+      #s-end-to-end .code-lang,
+      #s-email-doc .code-lang,
+      #s-doltgres .code-lang {
+        position: absolute;
+        top: 0;
+        right: 0;
+        font-family: 'JetBrains Mono', monospace;
+        font-size: 8.5px;
+        font-weight: 400;
+        color: #bbb;
+        letter-spacing: 0.8px;
+        text-transform: uppercase;
+        padding: 5px 10px;
+        user-select: none;
+      }
+      #s-end-to-end pre,
+      #s-environments pre,
+      #s-email-doc pre,
+      #s-doltgres pre {
+        margin: 24px 0;
+        padding: 18px 22px;
+        background: #f5f4f0;
+        border: 0.5px solid #e8e4de;
+        overflow-x: auto;
+        line-height: 1.55;
+        font-size: 0.82rem;
+      }
+      #s-end-to-end pre code,
+      #s-environments pre code,
+      #s-email-doc pre code,
+      #s-doltgres pre code {
+        background: none;
+        padding: 0;
+        border: none;
+        font-size: 12px;
+      }
+      #s-end-to-end strong,
+      #s-environments strong,
+      #s-email-doc strong,
+      #s-doltgres strong { font-weight: 700; color: #1a1a1a; }
+
+      /* labeled blocks */
+      #s-end-to-end .block,
+      #s-environments .block,
+      #s-email-doc .block,
+      #s-doltgres .block {
+        background: #faf9f7;
+        border-top: 1px solid #1a1a1a;
+        border-bottom: 0.5px solid #e8e4de;
+        padding: 14px 20px 16px;
+        margin: 24px 0;
+      }
+      #s-end-to-end .block .label,
+      #s-environments .block .label,
+      #s-email-doc .block .label,
+      #s-doltgres .block .label {
+        font-family: 'JetBrains Mono', monospace;
+        font-size: 8px;
+        color: #aaa;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        display: block;
+        margin-bottom: 10px;
+      }
+      #s-end-to-end .block pre,
+      #s-environments .block pre,
+      #s-email-doc .block pre,
+      #s-doltgres .block pre { margin: 0; padding: 0; background: none; border: none; }
+      #s-end-to-end .block code,
+      #s-environments .block code,
+      #s-email-doc .block code,
+      #s-doltgres .block code { background: none; border: none; padding: 0; font-size: 12.5px; line-height: 1.65; }
+
+      /* ch-table (doc tables) */
+      #s-end-to-end .ch-table,
+      #s-environments .ch-table,
+      #s-email-doc .ch-table,
+      #s-doltgres .ch-table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 20px 0 0;
+        font-size: 13.5px;
+      }
+      #s-end-to-end .ch-table th,
+      #s-environments .ch-table th,
+      #s-email-doc .ch-table th,
+      #s-doltgres .ch-table th {
+        font-family: 'JetBrains Mono', monospace;
+        font-size: 9px;
+        font-weight: 400;
+        color: #aaa;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        text-align: left;
+        padding: 6px 16px;
+        border-bottom: 1px solid #1a1a1a;
+      }
+      #s-end-to-end .ch-table td,
+      #s-environments .ch-table td,
+      #s-email-doc .ch-table td,
+      #s-doltgres .ch-table td {
+        padding: 10px 16px;
+        border-bottom: 0.5px solid #eee;
+        vertical-align: top;
+      }
+      #s-end-to-end .ch-table .mono,
+      #s-environments .ch-table .mono,
+      #s-email-doc .ch-table .mono,
+      #s-doltgres .ch-table .mono {
+        font-family: 'JetBrains Mono', monospace;
+        font-size: 12px;
+        white-space: nowrap;
+      }
+
+      /* sep */
+      #s-end-to-end .sep,
+      #s-environments .sep,
+      #s-email-doc .sep,
+      #s-doltgres .sep {
+        border: none;
+        text-align: center;
+        margin: 56px 0;
+        line-height: 0;
+      }
+      #s-end-to-end .sep::after,
+      #s-environments .sep::after,
+      #s-email-doc .sep::after,
+      #s-doltgres .sep::after {
+        content: '\2022\2009\2009\2022\2009\2009\2022';
+        font-size: 10px;
+        color: #ccc;
+        letter-spacing: 4px;
+      }
+
+      /* blockquote */
+      #s-email-doc blockquote,
+      #s-doltgres blockquote {
+        font-size: 13px;
+        color: #888;
+        font-style: italic;
+        margin: 20px 0 20px 28px;
+        padding-left: 16px;
+        border-left: 1.5px solid #ddd;
+        line-height: 1.6;
+      }
+
+      /* fig (environments) */
+      #s-environments .fig {
+        margin: 28px 0 36px;
+        border: 0.5px solid #ddd;
+        background: #fff;
+        padding: 24px 20px 16px;
+      }
+      #s-environments .fig svg { display: block; margin: 0 auto; max-width: 100%; }
+      #s-environments .fig-cap {
+        font-family: 'JetBrains Mono', monospace;
+        font-size: 9.5px;
+        color: #999;
+        letter-spacing: 0.3px;
+        margin-top: 14px;
+        padding-top: 10px;
+        border-top: 0.5px solid #eee;
+      }
+
+      /* colophon */
+      #s-end-to-end .colophon,
+      #s-environments .colophon,
+      #s-email-doc .colophon,
+      #s-doltgres .colophon {
+        border-top: 0.5px solid #ddd;
+        margin-top: 64px;
+        padding-top: 16px;
+      }
+      #s-end-to-end .colophon p,
+      #s-environments .colophon p,
+      #s-email-doc .colophon p,
+      #s-doltgres .colophon p {
+        font-family: 'JetBrains Mono', monospace;
+        font-size: 9px;
+        color: #ccc;
+        letter-spacing: 0.5px;
+        margin: 0;
+      }
+
+      /* lists in doc sections */
+      #s-end-to-end ul,
+      #s-environments ul,
+      #s-email-doc ul,
+      #s-doltgres ul,
+      #s-end-to-end ol,
+      #s-email-doc ol,
+      #s-doltgres ol { margin: 12px 0 12px 22px; }
+      #s-end-to-end li,
+      #s-environments li,
+      #s-email-doc li,
+      #s-doltgres li { margin: 5px 0; color: #333; }
+      #s-end-to-end li::marker,
+      #s-environments li::marker,
+      #s-email-doc li::marker,
+      #s-doltgres li::marker { color: #bbb; }
+
+      @media (max-width: 768px) {
+        #s-end-to-end .memo-head h2,
+        #s-email-doc .memo-head h2,
+        #s-doltgres .memo-head h2 { font-size: 1.15rem; }
+        #s-environments .memo-head h1 { font-size: 1.15rem; }
+        #s-end-to-end h3,
+        #s-email-doc h3,
+        #s-doltgres h3 { font-size: 1.1rem; margin: 36px 0 6px; }
+        #s-environments h2 { font-size: 1.1rem; margin: 36px 0 6px; }
+        #s-end-to-end h4,
+        #s-environments h4,
+        #s-email-doc h4,
+        #s-doltgres h4 { font-size: 1rem; }
+        #s-end-to-end p,
+        #s-environments p,
+        #s-email-doc p,
+        #s-doltgres p { font-size: 13.5px; }
+        #s-end-to-end pre,
+        #s-environments pre,
+        #s-email-doc pre,
+        #s-doltgres pre {
+          padding: 12px 14px;
+          font-size: 10.5px;
+          margin: 16px 0;
+        }
+        #s-end-to-end .ch-table,
+        #s-environments .ch-table,
+        #s-email-doc .ch-table,
+        #s-doltgres .ch-table {
+          font-size: 12px;
+          display: block;
+          overflow-x: auto;
+          -webkit-overflow-scrolling: touch;
+        }
+        #s-end-to-end .ch-table th,
+        #s-end-to-end .ch-table td,
+        #s-environments .ch-table th,
+        #s-environments .ch-table td,
+        #s-email-doc .ch-table th,
+        #s-email-doc .ch-table td,
+        #s-doltgres .ch-table th,
+        #s-doltgres .ch-table td { padding: 6px 8px; }
+        #s-end-to-end .header-stack,
+        #s-email-doc .header-stack,
+        #s-doltgres .header-stack { height: 160px; }
+        #s-end-to-end .header-stack img,
+        #s-email-doc .header-stack img,
+        #s-doltgres .header-stack img { height: 160px; }
+      }
+    </style>
+  </head>
+
+  <body>
+    <header>
+      <div class="header-left">
+        <h1><a href="../index.html">Adam Sioud</a></h1>
+      </div>
+      <nav>
+        <ul>
+          <li><a href="../index.html">About</a></li>
+          <li><a href="../art/art.html">Art</a></li>
+          <li><a href="../blog/blog.html">Mosaics &amp; Essays</a></li>
+          <li><a href="../exemplars/exemplars.html">Exemplars</a></li>
+          <li><a href="projects.html" class="active">Projects</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+      <div class="post-label">Projects</div>
+
+      <!-- banner -->
+      <div class="page-banner">
+        <picture>
+          <source srcset="../images/sketch/header.webp" type="image/webp">
+          <img src="../images/sketch/header.png" alt="Mailman" loading="eager" decoding="async">
+        </picture>
+      </div>
+
+      <article class="blog-post">
+        <div class="top-strip">
+          <div class="top-strip-links">
+            <span style="color: #aaa; font-style: italic; text-transform: none;">See also</span>
+            <a href="../exemplars/rl/post_training_fundamentals.html">Post-Training Fundamentals</a>
+            <a href="https://github.com/gustofied/terminal2F/tree/main/environments/email-to-cc-bcc" target="_blank" rel="noopener">GitHub</a>
+          </div>
+          <div class="top-strip-toc">
+            <span style="color: #aaa; font-style: italic; text-transform: none;">Jump to</span>
+            <a href="#s-what">What</a>
+            <a href="#s-stack">Stack</a>
+            <a href="#s-verifiers-env">Verifiers Envs</a>
+            <a href="#s-topology">Topology</a>
+            <a href="#s-grpo">GRPO</a>
+            <a href="#s-email">email-to-cc-bcc</a>
+            <a href="#s-doltgres-intro">Doltgres</a>
+          </div>
+        </div>
+
+        <div class="article-content">
+
+          <h3 class="section-h" id="s-what"><span>What</span></h3>
+
+          <p>So this is my big project which likley span the whole of the first half of 2026. I've been immersing myself in RL for LLM agents. There are going to be three specific environments that I want to build for this kind of project. I'm specifically targeting one attack area which was inspired by <a href="https://www.youtube.com/watch?v=9v99F9dQq-U" target="_blank" rel="noopener">Zapier Mock MCP Environment Challenge</a>. How to mock DBs, scale DBs for training, envs and tasks for Zapier type of workflows. Synthetic databases: generate neutral production-like data, not your real DB, something mocked or synthetically generated that behaves like the real thing. A lot of research and good stuff have been looked at, will note and cite here as time goes on. Project is using a lot and inspired by a lot of Prime Intellect stuff. The first env is fully completed, you can read below, <a href="#s-email">email-to-cc-bcc</a>. Other than that I describe and explore the stack, some findings, and a little on the DB stuff. <em>This article is very hacky at the moment, to be continued.</em></p>
+
+
+          <!-- ═══════════════════════════════════════════════════════════
+               THE STACK
+               ═══════════════════════════════════════════════════════════ -->
+
+          <h3 class="section-h" id="s-stack"><span>The Stack</span></h3>
+
+          <p>
+            The environment is a <a href="https://github.com/PrimeIntellect-ai/verifiers" target="_blank" rel="noopener">verifiers</a> environment, which does a lot for us: state management, the multi-turn conversation loop, trajectory tracking, and rubric scoring. To work with it we need a trainer, and that can be anything that speaks the protocol verifiers accepts: SkyRL, Prime RL, whatever. I use <a href="https://github.com/gustofied/terminal2F/tree/main/external/t2f-trainer" target="_blank" rel="noopener">t2f-trainer</a>, a fork of verifiers-rl extracted into its own package. The connection point between the model, the environment, and the trainer is the <code>env.generate()</code> function in verifiers. And that's it.
+          </p>
+
+          <table class="m-table">
+            <tbody><tr><th>Piece</th><th>What</th></tr>
+            <tr>
+              <td class="mono">model</td>
+              <td>HuggingFace model ID. Loaded into vLLM for inference and into transformers/deepspeed for training.</td>
+            </tr>
+            <tr>
+              <td class="mono">environment</td>
+              <td>A verifiers environment: dataset + reward functions + conversation loop. Versioned Python package, importable, reproducible.</td>
+            </tr>
+            <tr>
+              <td class="mono">trainer</td>
+              <td>Orchestrates rollouts, computes advantages, runs the training loop, syncs weights back to vLLM via NCCL.</td>
+            </tr>
+          </tbody></table>
+
+          <p>
+            Two GPUs on one node: one for inference (vLLM), one for training. After each training step, the trainer pushes updated weights to the inference server over NCCL so the next batch of rollouts uses the latest policy.          </p>
+
+          <!-- ═══════════════════════════════════════════════════════════
+               VERIFIERS ENVIRONMENT
+               ═══════════════════════════════════════════════════════════ -->
+
+          <h3 class="section-h" id="s-verifiers-env"><span>Verifiers Environment</span></h3>
+
+          <h4>What is an Environment</h4>
+
+          <p>Every environment in verifiers is a multi-turn environment. That's the core class. A single-turn environment is just a multi-turn environment with turns set to 1, for example a simple question and answer environment.</p>
+
+          <p>An environment packages three things: a <strong>dataset</strong> (task inputs), a <strong>harness</strong> (tools, sandboxes, context), and a <strong>rubric</strong> (reward functions that score the model). The environment is a loop: the model responds to something, the environment reacts, repeat until done.</p>
+
+          <p>The dataset gives you the starting state: a prompt and an <code>info</code> field with whatever the environment needs (follow-ups, ground truths, seeds). What turns a simple Q&amp;A dataset into an agentic environment is <code>env_response</code>, the function that reacts to each model turn and feeds back the next message.</p>
+
+          <h4>The Rollout Loop</h4>
+
+          <p>Each rollout gets a <code>state</code> dict that lives for its full duration. It carries the dataset fields (<code>state["info"]</code>, <code>state["prompt"]</code>), runtime data that verifiers populates as the rollout progresses (<code>trajectory</code>, <code>completion</code>, <code>reward</code>), and anything you store there yourself. <code>state</code> is passed to every function in the rollout: <code>setup_state</code>, <code>env_response</code>, stop conditions, cleanup, and reward functions all read from and write to the same object.</p>
+
+          <table class="m-table">
+            <tbody><tr><th></th><th>What happens</th></tr>
+            <tr><td class="mono" style="color: rgb(170, 170, 170);">1</td><td><code>setup_state(state)</code> prepares per-rollout resources</td></tr>
+            <tr><td class="mono" style="color: rgb(170, 170, 170);">2</td><td>Model sees the conversation so far, generates a response</td></tr>
+            <tr><td class="mono" style="color: rgb(170, 170, 170);">3</td><td>Stop conditions checked. If done, go to 6</td></tr>
+            <tr><td class="mono" style="color: rgb(170, 170, 170);">4</td><td><code>env_response(messages, state)</code> reacts: returns new messages to append</td></tr>
+            <tr><td class="mono" style="color: rgb(170, 170, 170);">5</td><td>Back to 2</td></tr>
+            <tr><td class="mono" style="color: rgb(170, 170, 170);">6</td><td>Final completion rendered, rubric scores the rollout, cleanup runs</td></tr>
+          </tbody></table>
+
+          <p><code>env_response</code> is the heart of it. For a "pre-planned" environment, it pulls the next follow-up from <code>state["info"]</code>. For a tool environment, it executes the model's tool calls and returns results. Verifiers doesn't know or care what happens inside, it just expects messages back.</p>
+
+          <div class="code-block">
+            <span class="code-lang">python</span>
+            <pre><code><span style="color:#586E75"># simple: pull follow-up from dataset</span>
+<span style="color:#859900">async def</span> <span style="color:#268bd2">env_response</span>(self, messages, state, **kwargs):
+    turn = <span style="color:#6c71c4">len</span>([m <span style="color:#859900">for</span> m <span style="color:#859900">in</span> messages <span style="color:#859900">if</span> m[<span style="color:#2aa198">"role"</span>] == <span style="color:#2aa198">"assistant"</span>]) - <span style="color:#d33682">1</span>
+    <span style="color:#859900">return</span> [{<span style="color:#2aa198">"role"</span>: <span style="color:#2aa198">"user"</span>, <span style="color:#2aa198">"content"</span>: state[<span style="color:#2aa198">"info"</span>][<span style="color:#2aa198">"follow_ups"</span>][turn]}]
+
+<span style="color:#586E75"># tool: execute and return results</span>
+<span style="color:#859900">async def</span> <span style="color:#268bd2">env_response</span>(self, messages, state, **kwargs):
+    tool_calls = parse_tool_calls(messages[<span style="color:#d33682">-1</span>])
+    results = []
+    <span style="color:#859900">for</span> call <span style="color:#859900">in</span> tool_calls:
+        result = <span style="color:#859900">await</span> state[<span style="color:#2aa198">"server"</span>].call_tool(call.name, call.args)
+        results.append({<span style="color:#2aa198">"role"</span>: <span style="color:#2aa198">"tool"</span>, <span style="color:#2aa198">"content"</span>: result})
+    <span style="color:#859900">return</span> results</code></pre>
+          </div>
+
+          <h4>Lifecycle</h4>
+
+          <p>Verifiers gives you hooks at each stage of a rollout. You set things up, react to each turn, decide when to stop, and clean up.</p>
+
+          <table class="m-table">
+            <tbody><tr><th>Hook</th><th>When</th><th>What you do</th></tr>
+            <tr><td class="mono">setup_state</td><td>start of rollout</td><td>Spin up databases, servers, per-rollout resources. Store handles in <code>state</code>.</td></tr>
+            <tr><td class="mono">env_response</td><td>after each model turn</td><td>React to the model's output. Return the next messages.</td></tr>
+            <tr><td class="mono">@vf.stop</td><td>after each turn</td><td>Custom stop conditions. Return <code>True</code> to end. Built-in <code>max_turns_reached</code> is always there.</td></tr>
+            <tr><td class="mono">@vf.cleanup</td><td>end of rollout</td><td>Tear down per-rollout resources. Must be idempotent.</td></tr>
+            <tr><td class="mono">@vf.teardown</td><td>environment shutdown</td><td>Clean up anything shared across all rollouts.</td></tr>
+          </tbody></table>
+
+          <h4>State</h4>
+
+          <p><code>state</code> is a mutable dict that lives for the duration of a rollout. It's accessible everywhere: in <code>env_response</code>, stop conditions, cleanup, and reward functions. Verifiers populates some fields automatically. You add whatever your environment needs.</p>
+
+          <table class="m-table">
+            <tbody><tr><th>Field</th><th></th></tr>
+            <tr><td class="mono">state["prompt"]</td><td>initial prompt messages</td></tr>
+            <tr><td class="mono">state["info"]</td><td>per-example data from the dataset (ground truths, seeds, follow-ups)</td></tr>
+            <tr><td class="mono">state["trajectory"]</td><td>list of steps, each with prompt, completion, reward per turn</td></tr>
+            <tr><td class="mono">state["completion"]</td><td>final rendered completion (after rollout ends)</td></tr>
+            <tr><td class="mono">state["reward"]</td><td>final reward (after scoring)</td></tr>
+          </tbody></table>
+
+          <p>You store your own resources in state too: database connections, server handles, flags. Reward functions can read anything in state, and earlier reward functions can store computed values for later ones to consume.</p>
+
+          <h4>Scoring</h4>
+
+          <p>Final rubric scoring happens after the rollout completes. The rubric is a list of reward functions with weights. Each function receives what it asks for by name: <code>completion</code>, <code>state</code>, <code>info</code>, <code>answer</code>. Returns a float, typically 0.0 to 1.0. Intermediate per-turn rewards can also be attached during the rollout via trajectory steps.</p>
+
+          <div class="code-block">
+            <span class="code-lang">python</span>
+            <pre><code><span style="color:#859900">async def</span> <span style="color:#268bd2">correctness</span>(completion, state, **kwargs):
+    expected = state[<span style="color:#2aa198">"info"</span>][<span style="color:#2aa198">"ground_truths"</span>]
+    actual = parse_answer(completion)
+    <span style="color:#859900">return</span> <span style="color:#d33682">1.0</span> <span style="color:#859900">if</span> actual == expected <span style="color:#859900">else</span> <span style="color:#d33682">0.0</span>
+
+rubric = vf.Rubric(funcs=[correctness], weights=[<span style="color:#d33682">1.0</span>])</code></pre>
+          </div>
+
+          <p>Multiple reward functions combine via weighted sum. Use <code>add_metric()</code> with <code>weight=0</code> to track things without affecting the final reward. Which is neat.</p>
+
+          <!-- ═══════════════════════════════════════════════════════════
+               TOPOLOGY
+               ═══════════════════════════════════════════════════════════ -->
+
+          <h3 class="section-h" id="s-topology"><span>Topology of a Training Step</span></h3>
+
+          <p>
+            One full cycle. The orchestrator prepares what the trainer needs: rollouts, advantages, microbatches. The trainer re-evaluates the same tokens under the current policy, computes loss, and updates weights. Then syncs to vLLM so the next batch generates with the new policy.
+          </p>
+
+          <!-- topology diagram -->
+          <figure style="margin:20px 0 28px; border:1px solid var(--ink); padding:20px 16px 12px; background:#fff;">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 370" style="width:100%;height:auto;display:block;">
+              <defs>
+                <marker id="t1" markerWidth="4" markerHeight="4" refX="4" refY="2" orient="auto"><path d="M0,0 L4,2 L0,4 Z" fill="#1a1a1a"></path></marker>
+                <marker id="t2" markerWidth="4" markerHeight="4" refX="4" refY="2" orient="auto"><path d="M0,0 L4,2 L0,4 Z" fill="#999"></path></marker>
+                <marker id="t3" markerWidth="4" markerHeight="4" refX="4" refY="2" orient="auto"><path d="M0,0 L4,2 L0,4 Z" fill="#8a7d6b"></path></marker>
+              </defs>
+
+              <!-- Trainer process boundary -->
+              <rect x="8" y="8" width="684" height="148" fill="none" stroke="#d6cfc6" stroke-width="0.5" stroke-dasharray="4,3"></rect>
+              <text x="18" y="22" font-family="'JetBrains Mono',monospace" font-size="7.5" fill="#b0a899" letter-spacing="1.5">TRAINER PROCESS</text>
+
+              <!-- Trainer box -->
+              <rect x="28" y="38" width="196" height="104" fill="#fff" stroke="#1a1a1a" stroke-width="0.6"></rect>
+              <text x="42" y="56" font-family="'Palatino Linotype',serif" font-size="14.5" fill="#1a1a1a" font-weight="600">Trainer</text>
+              <line x1="42" y1="62" x2="126" y2="62" stroke="#d6cfc6" stroke-width="0.4"></line>
+              <text x="42" y="78" font-family="'JetBrains Mono',monospace" font-size="9" fill="#888">forward pass</text>
+              <text x="42" y="92" font-family="'JetBrains Mono',monospace" font-size="9" fill="#888">loss + backprop</text>
+              <text x="42" y="106" font-family="'JetBrains Mono',monospace" font-size="9" fill="#888">weight update</text>
+              <text x="42" y="120" font-family="'JetBrains Mono',monospace" font-size="9" fill="#888">weight sync</text>
+              <text x="190" y="56" font-family="'JetBrains Mono',monospace" font-size="7.5" fill="#d6cfc6" text-anchor="end">4-6</text>
+
+              <!-- Orchestrator box -->
+              <rect x="296" y="38" width="380" height="104" fill="#fff" stroke="#1a1a1a" stroke-width="0.6"></rect>
+              <text x="310" y="56" font-family="'Palatino Linotype',serif" font-size="14.5" fill="#1a1a1a" font-weight="600">Orchestrator</text>
+              <line x1="310" y1="62" x2="420" y2="62" stroke="#d6cfc6" stroke-width="0.4"></line>
+              <text x="310" y="78" font-family="'JetBrains Mono',monospace" font-size="9" fill="#888">calls env.generate()</text>
+              <text x="310" y="92" font-family="'JetBrains Mono',monospace" font-size="9" fill="#888">computes advantages</text>
+              <text x="442" y="92" font-family="'JetBrains Mono',monospace" font-size="9" fill="#d6cfc6">(reward - group_mean)</text>
+              <text x="310" y="106" font-family="'JetBrains Mono',monospace" font-size="9" fill="#888">packages microbatches</text>
+              <text x="310" y="120" font-family="'JetBrains Mono',monospace" font-size="9" fill="#d6cfc6">input_ids . loss_mask . logprobs . advantages</text>
+              <text x="644" y="56" font-family="'JetBrains Mono',monospace" font-size="7.5" fill="#d6cfc6" text-anchor="end">1-3</text>
+
+              <!-- Orch -> Trainer -->
+              <line x1="296" y1="94" x2="230" y2="94" stroke="#1a1a1a" stroke-width="0.5" marker-end="url(#t1)"></line>
+              <text x="254" y="88" font-family="'JetBrains Mono',monospace" font-size="7" fill="#b0a899" text-anchor="middle">microbatch</text>
+
+              <!-- vLLM box -->
+              <rect x="28" y="222" width="240" height="130" fill="#fff" stroke="#1a1a1a" stroke-width="0.6"></rect>
+              <text x="42" y="244" font-family="'Palatino Linotype',serif" font-size="14.5" fill="#1a1a1a" font-weight="600">vLLM</text>
+              <line x1="42" y1="250" x2="120" y2="250" stroke="#d6cfc6" stroke-width="0.4"></line>
+              <text x="42" y="268" font-family="'JetBrains Mono',monospace" font-size="9" fill="#888">hosts model weights</text>
+              <text x="42" y="282" font-family="'JetBrains Mono',monospace" font-size="9" fill="#888">OpenAI-compatible API</text>
+              <text x="42" y="296" font-family="'JetBrains Mono',monospace" font-size="9" fill="#888">returns completions</text>
+              <text x="42" y="310" font-family="'JetBrains Mono',monospace" font-size="9" fill="#d6cfc6">  + token IDs + logprobs</text>
+              <text x="42" y="324" font-family="'JetBrains Mono',monospace" font-size="9" fill="#888">accepts weight sync</text>
+
+              <!-- Verifiers box -->
+              <rect x="400" y="222" width="276" height="130" fill="#fff" stroke="#1a1a1a" stroke-width="0.6"></rect>
+              <text x="414" y="244" font-family="'Palatino Linotype',serif" font-size="14.5" fill="#1a1a1a" font-weight="600">Verifiers</text>
+              <text x="478" y="244" font-family="'JetBrains Mono',monospace" font-size="9" fill="#d6cfc6">(env)</text>
+              <line x1="414" y1="250" x2="560" y2="250" stroke="#d6cfc6" stroke-width="0.4"></line>
+              <text x="414" y="268" font-family="'JetBrains Mono',monospace" font-size="9" fill="#888">multi-turn conversation loop</text>
+              <text x="414" y="282" font-family="'JetBrains Mono',monospace" font-size="9" fill="#888">env_response() between turns</text>
+              <text x="414" y="296" font-family="'JetBrains Mono',monospace" font-size="9" fill="#888">reward functions score rollout</text>
+              <text x="414" y="310" font-family="'JetBrains Mono',monospace" font-size="9" fill="#888">returns scored trajectory</text>
+
+              <!-- Channel B: Trainer -> vLLM -->
+              <line x1="128" y1="156" x2="128" y2="216" stroke="#1a1a1a" stroke-width="0.5" marker-end="url(#t1)"></line>
+              <circle cx="128" cy="156" r="2" fill="#1a1a1a"></circle>
+              <text x="136" y="180" font-family="'JetBrains Mono',monospace" font-size="9" fill="#1a1a1a" font-weight="500">B</text>
+              <text x="136" y="192" font-family="'JetBrains Mono',monospace" font-size="7.5" fill="#888">NCCL weight sync</text>
+
+              <!-- Orchestrator -> Verifiers -->
+              <line x1="520" y1="142" x2="520" y2="216" stroke="#8a7d6b" stroke-width="0.5" marker-end="url(#t3)"></line>
+              <circle cx="520" cy="142" r="2" fill="#8a7d6b"></circle>
+              <text x="528" y="174" font-family="'JetBrains Mono',monospace" font-size="7.5" fill="#8a7d6b">env.generate()</text>
+
+              <!-- Channel A: Verifiers <-> vLLM -->
+              <line x1="400" y1="276" x2="274" y2="276" stroke="#999" stroke-width="0.5" marker-end="url(#t2)"></line>
+              <circle cx="400" cy="276" r="1.5" fill="#999"></circle>
+              <text x="336" y="270" font-family="'JetBrains Mono',monospace" font-size="7" fill="#b0a899" text-anchor="middle">completions</text>
+              <line x1="268" y1="300" x2="394" y2="300" stroke="#999" stroke-width="0.5" stroke-dasharray="3,2" marker-end="url(#t2)"></line>
+              <text x="336" y="314" font-family="'JetBrains Mono',monospace" font-size="7" fill="#b0a899" text-anchor="middle">tokens + logprobs</text>
+              <text x="274" y="292" font-family="'JetBrains Mono',monospace" font-size="9" fill="#999" font-weight="500">A</text>
+            </svg>
+            <p style="font-family: &quot;JetBrains Mono&quot;, monospace; font-size: 8px; color: rgb(176, 168, 153); letter-spacing: 0.5px; margin-top: 12px; padding-top: 10px; border-top: 0.5px solid rgb(214, 207, 198);">Channel A: Verifiers calls vLLM via OpenAI HTTP API for completions. Channel B: Trainer pushes updated weights to vLLM via NCCL.</p>
+          </figure>
+
+          <p>
+            The orchestrator lives inside the trainer process but runs in a background thread. It calls <code>env.generate()</code> with a vLLM client. Verifiers drives the multi-turn loop, calls vLLM for completions (channel A), scores the rollout with reward functions, and returns trajectories with token IDs, log-probs, and rewards. The orchestrator then computes group-relative advantages (reward minus group mean), packages everything into microbatches, and hands them to the training loop.
+          </p>
+
+          <p>
+            The trainer takes each microbatch, runs a forward pass on the same tokens to get fresh log-probs under the current policy, computes the importance ratio (trainer log-probs minus inference log-probs), multiplies by the advantage, and backpropagates. After processing all microbatches, one optimizer step updates the weights. Then NCCL broadcasts the new weights to vLLM (channel B) so the next batch of rollouts uses the updated policy. That is one step. Repeat.
+          </p>
+
+          <!-- ═══════════════════════════════════════════════════════════
+               GRPO
+               ═══════════════════════════════════════════════════════════ -->
+
+          <h3 class="section-h" id="s-grpo"><span>GRPO</span></h3>
+
+          <p>
+            Group Relative Policy Optimization. The model generates multiple rollouts for the same prompt. Each rollout gets a reward from the environment. The advantage is just the reward minus the group mean: rollouts that scored better than average get a positive advantage, rollouts that scored worse get a negative one.          </p>
+
+          <p>
+            A concrete example. The model tries the same prompt three times:
+          </p>
+
+          <table class="m-table">
+            <tbody><tr><th></th><th>Answer</th><th>Reward</th><th>Advantage</th></tr>
+            <tr>
+              <td>Rollout 1</td>
+              <td class="mono">a, b, c, d</td>
+              <td class="mono">1.0</td>
+              <td class="mono" style="color: rgb(44, 95, 45);">+0.33</td>
+            </tr>
+            <tr>
+              <td>Rollout 2</td>
+              <td class="mono">a, b, d, c</td>
+              <td class="mono">0.0</td>
+              <td class="mono" style="color: rgb(179, 58, 58);">-0.67</td>
+            </tr>
+            <tr>
+              <td>Rollout 3</td>
+              <td class="mono">a, b, c, d</td>
+              <td class="mono">1.0</td>
+              <td class="mono" style="color: rgb(44, 95, 45);">+0.33</td>
+            </tr>
+          </tbody></table>
+
+          <p>
+            Average reward: 0.67. Rollout 2 scored below average, so its advantage is negative: the gradient pushes its log-probs down. Rollouts 1 and 3 scored above average, so their log-probs get pushed up. The model can look at what it did differently between rollout 1 and rollout 2 and adjust accordingly.          </p>
+
+          <!-- ═══════════════════════════════════════════════════════════
+               EMAIL-TO-CC-BCC
+               ═══════════════════════════════════════════════════════════ -->
+
+          <h3 class="section-h" id="s-email"><span>email-to-cc-bcc</span></h3>
+
+          <p style="font-family: &quot;JetBrains Mono&quot;, monospace; font-size: 9px; color: rgb(153, 153, 153); margin-bottom: 16px;">
+            <a href="https://app.primeintellect.ai/dashboard/environments/gustofied/email-to-cc-bcc" target="_blank" rel="noopener" style="color:#999 !important; text-decoration:none; background:linear-gradient(to top, rgba(138,125,107,0.15) 40%, transparent 40%);">Prime Intellect environment hub</a>
+            &nbsp;·&nbsp;
+            <a href="https://github.com/gustofied/terminal2F/tree/main/nuggets/email-to-cc-bcc" target="_blank" rel="noopener" style="color:#999 !important; text-decoration:none; background:linear-gradient(to top, rgba(138,125,107,0.15) 40%, transparent 40%);">Synthetic data</a>
+            &nbsp;·&nbsp;
+            <a href="https://huggingface.co/datasets/gustofied/email-to-cc-bcc" target="_blank" rel="noopener" style="color:#999 !important; text-decoration:none; background:linear-gradient(to top, rgba(138,125,107,0.15) 40%, transparent 40%);">Dataset</a>
+            &nbsp;·&nbsp;
+            <a href="https://huggingface.co/gustofied/Qwen3-0.6B-to-cc-bcc" target="_blank" rel="noopener" style="color:#999 !important; text-decoration:none; background:linear-gradient(to top, rgba(138,125,107,0.15) 40%, transparent 40%);">Trained model</a>
+          </p>
+
+          <p>
+            Email-to-CC-BCC is an environment built to evaluate and train models on recipient placement via RLVR (GRPO), using the verifiers framework and <a href="https://github.com/gustofied/terminal2F/tree/main/external/t2f-trainer" target="_blank" rel="noopener">t2f-trainer</a>. The thinking is that the task is a good fit for RL because it has a clear verifiable reward signal (set match against ground truth), structured output (JSON), and enough ambiguity in the CC/BCC split that a model has to reason about roles, sensitivity, and hierarchy rather than pattern match. A synthetic dataset is generated using <a href="https://nvidia-nemo.github.io/DataDesigner/latest/" target="_blank" rel="noopener">NVIDIA NeMo DataDesigner</a>, then used to train Qwen models and compare against OpenAI baselines. The environment supports 1, 2, and 3 turn rollouts as a form of curriculum.
+          </p>
+
+          <h4>The task</h4>
+
+          <p>Given 7 people and an email thread, assign each person to To, CC, or BCC. The thread evolves across turns and recipients shift.</p>
+
+          <p>Each row has 7 people with name, email address, and role. The model sees the full roster and an email, then outputs a JSON object placing each relevant person into the correct field. On follow-up turns, a new email arrives in the thread and the model re-evaluates.</p>
+
+          <div class="code-block">
+            <span class="code-lang">turn 1</span>
+            <pre><code>You are given an email thread. For each email, assign
+the correct To, CC, and BCC recipients. Recipients may
+change between emails as the situation evolves.
+
+Roster:
+- Sarah Chen &lt;sarah.chen@acme.com&gt; - Project Lead
+- Mike Torres &lt;mike.t@clientcorp.com&gt; - Client PM
+- Lisa Park &lt;lisa.park@acme.com&gt; - VP Engineering
+  ...
+
+Subject: Q3 deadline extension request
+
+Hi team, I wanted to flag that we're going to need
+a 2-week extension on the Phoenix deliverables...
+
+Reply with JSON only: {<span style="color:#2aa198">"to"</span>: [...], <span style="color:#2aa198">"cc"</span>: [...], <span style="color:#2aa198">"bcc"</span>: [...]}
+Use email addresses, not names.</code></pre>
+          </div>
+
+          <div class="code-block">
+            <span class="code-lang">json</span>
+            <pre><code>{
+  <span style="color:#268bd2">"to"</span>: [<span style="color:#2aa198">"sarah.chen@acme.com"</span>],
+  <span style="color:#268bd2">"cc"</span>: [<span style="color:#2aa198">"mike.t@clientcorp.com"</span>],
+  <span style="color:#268bd2">"bcc"</span>: [<span style="color:#2aa198">"lisa.park@acme.com"</span>]
+}</code></pre>
+          </div>
+
+          <p><code>max_turns</code> controls how many turns the environment runs (1, 2, or 3). Scoring uses Jaccard index per field per turn, averaged across all turns in the rollout.</p>
+
+          <h4>The dataset</h4>
+
+          <p>
+            Verifiers uses HuggingFace <code>datasets</code> natively, so hosting on HuggingFace and loading via <code>load_dataset</code> is the natural thing to do.
+          </p>
+
+          <p>The dataset is a flat parquet with 7 columns. One row is one complete 3-turn scenario:</p>
+
+          <table class="m-table">
+            <tbody><tr><th>Column</th><th>Description</th></tr>
+            <tr><td class="mono">email_list</td><td>The 7 people, always present. Each entry is <code>name &lt;email&gt; - role</code>.</td></tr>
+            <tr><td class="mono">question_1</td><td>Initial email (subject + body). The environment prepends <code>email_list</code> and appends the instruction at runtime.</td></tr>
+            <tr><td class="mono">question_2, 3</td><td>Follow-up replies as the situation evolves (people added, removed, escalation, etc.).</td></tr>
+            <tr><td class="mono">answer_1, 2, 3</td><td>Ground truth JSON: <code>{"to": [...], "cc": [...], "bcc": [...]}</code></td></tr>
+          </tbody></table>
+
+          <p><code>load_environment</code> reshapes the flat columns into the verifiers format:</p>
+
+          <div class="code-block">
+            <span class="code-lang">python</span>
+            <pre><code><span style="color:#2aa198">"prompt"</span>: [{<span style="color:#2aa198">"role"</span>: <span style="color:#2aa198">"user"</span>, <span style="color:#2aa198">"content"</span>: email_list + question_1 + instruction}],
+<span style="color:#2aa198">"info"</span>: {
+    <span style="color:#2aa198">"follow_ups"</span>: [question_2, question_3],
+    <span style="color:#2aa198">"ground_truths"</span>: [answer_1, answer_2, answer_3],
+    <span style="color:#2aa198">"num_turns"</span>: max_turns,
+}</code></pre>
+          </div>
+
+          <p>Generation uses <a href="https://nvidia-nemo.github.io/DataDesigner/latest/" target="_blank" rel="noopener">DataDesigner</a>. Each row is built in three steps:</p>
+
+          <ol>
+            <li><strong>Sample people</strong> - 7 per row with name, email, role. 2-6 start active, rest are reserve. One company domain per row, one external domain. Roles sampled without replacement.</li>
+            <li><strong>Assign recipients per turn</strong> - deterministic. Sensitivity drives BCC, hierarchy drives To vs CC. Changes between turns retry if they'd be a no-op.</li>
+            <li><strong>LLM writes email content</strong> - given the roster and visible recipients (To/CC only, no BCC), generate realistic email thread. v1 used <code>google/gemini-2.5-flash</code> via OpenRouter.</li>
+          </ol>
+
+          <p>
+            The first version of the dataset (v1) used a random shuffle to assign recipients to To, CC, and BCC. The labels were not derivable from the email content. Running frontier models (GPT-5, Claude Sonnet 4.6, GPT-4.1-mini) against it confirmed the problem: they all hit the same ~0.44 ceiling. Looking at individual rollouts, the models were often more correct than the ground truth. Training on those labels would have pushed models away from good judgment and toward matching random assignments.
+          </p>
+
+          <p>
+            The v2 dataset rewrote the data generation pipeline. Recipient routing is now deterministic: the person being asked to act goes to To (based on role priority), managers and stakeholders go to CC (based on hierarchy), compliance observers go to BCC (only from the reserve pool, never from active participants). The LLM generating the email content never sees BCC names, so they cannot leak into the text. A post-generation validator rejects rows where any invariant is broken. ~5000 rows passed validation out of 7500 generated. Scoring uses Jaccard index per field per turn, averaged across the rollout.
+          </p>
+
+          <h4>The ceiling</h4>
+
+          <p>
+            On the v2 dataset with reweighted rubric (To 0.45, CC 0.45, BCC 0.10), frontier models reach ~0.50 reward. The ceiling moved up from v1 because the labels are now learnable, but models still disagree with the ground truth on edge cases. I picked Qwen3-0.6B as the training target, which scored 0.253 on the baseline.
+          </p>
+
+          <p>
+            Before training, targeted evaluations revealed the failure modes. On three-turn rollouts, the 0.6B model collapsed: 40% of turn-3 responses had no JSON at all (stuck in its thinking block). On single-turn, format was clean (100% valid JSON), but only 92% used email addresses as instructed.
+          </p>
+
+          <table class="m-table">
+            <tbody><tr><th>Model</th><th>Turns</th><th>Reward</th><th>To</th><th>CC</th></tr>
+            <tr><td>GPT-4.1-mini</td><td class="mono">3</td><td class="mono">0.488</td><td class="mono">0.683</td><td class="mono">0.373</td></tr>
+            <tr><td>GPT-4.1-mini</td><td class="mono">1</td><td class="mono">0.470</td><td class="mono">0.593</td><td class="mono">0.425</td></tr>
+            <tr><td>Qwen3-8B</td><td class="mono">3</td><td class="mono">0.482</td><td class="mono">0.632</td><td class="mono">0.409</td></tr>
+            <tr><td>Qwen3-8B</td><td class="mono">1</td><td class="mono">0.429</td><td class="mono">0.539</td><td class="mono">0.384</td></tr>
+            <tr style="border-top:1.5px solid var(--ink)"><td>Qwen3-0.6B</td><td class="mono">3</td><td class="mono">0.115</td><td class="mono">0.050</td><td class="mono">0.194</td></tr>
+            <tr><td>Qwen3-0.6B</td><td class="mono">1</td><td class="mono">0.191</td><td class="mono">0.124</td><td class="mono">0.282</td></tr>
+          </tbody></table>
+
+          <p>
+            For GPT-4.1-mini and Qwen3-8B, three turns scores higher than single-turn because later emails make the action owner more explicit. The 0.6B model shows the opposite: single-turn nearly doubles reward because the model cannot survive the multi-turn format burden.
+          </p>
+
+          <h4>The approach</h4>
+
+          <p>
+            Start simple. Single-turn only to remove multi-turn format collapse. Add two small format rewards to the rubric: <code>format_correct</code> (binary, valid JSON with exactly the right keys) and <code>email_format</code> (fractional, proportion of recipients that are email addresses), each at 0.05 weight. The format reward is scaffolding: it occupies the first phase of training, then becomes invisible once solved.
+          </p>
+
+          <table class="m-table">
+            <tbody><tr><th>Function</th><th>Weight</th></tr>
+            <tr><td>to_correct</td><td class="mono">0.40</td></tr>
+            <tr><td>cc_correct</td><td class="mono">0.40</td></tr>
+            <tr><td>bcc_correct</td><td class="mono">0.10</td></tr>
+            <tr><td>format_correct</td><td class="mono">0.05</td></tr>
+            <tr><td>email_format</td><td class="mono">0.05</td></tr>
+          </tbody></table>
+
+          <p>
+            Training: GRPO with LoRA on Qwen3-0.6B. Two A6000 48GB GPUs (one inference via t2f-vllm, one trainer). 100 steps, 512 rollouts per step, lr=1e-5. Took 1h52m.
+          </p>
+
+          <h4>Results</h4>
+
+          <p>Evaluated on a 50-example sample from a 91-example held-out test split generated independently from the training data.</p>
+
+          <p><b>Single-turn (held-out test set).</b></p>
+
+          <table class="m-table">
+            <tbody><tr><th></th><th>Reward</th><th>To</th><th>CC</th><th>Format</th></tr>
+            <tr>
+              <td>Qwen3-0.6B (base)</td>
+              <td class="mono">0.234</td><td class="mono">0.081</td><td class="mono">0.245</td><td class="mono">1.000</td>
+            </tr>
+            <tr>
+              <td><strong>Qwen3-0.6B (trained)</strong></td>
+              <td class="mono"><strong>0.710</strong></td><td class="mono"><strong>0.822</strong></td><td class="mono"><strong>0.695</strong></td><td class="mono">1.000</td>
+            </tr>
+            <tr style="border-top:1.5px solid var(--ink)">
+              <td style="color: rgb(153, 153, 153);">GPT-4.1-mini</td>
+              <td class="mono" style="color: rgb(153, 153, 153);">0.486</td><td class="mono" style="color: rgb(153, 153, 153);">0.540</td><td class="mono" style="color: rgb(153, 153, 153);">0.390</td><td class="mono" style="color: rgb(153, 153, 153);">1.000</td>
+            </tr>
+          </tbody></table>
+
+          <p><b>Three-turn (held-out test set).</b></p>
+
+          <table class="m-table">
+            <tbody><tr><th></th><th>Reward</th><th>To</th><th>CC</th><th>Format</th></tr>
+            <tr>
+              <td>Qwen3-0.6B (base)</td>
+              <td class="mono">0.188</td><td class="mono">0.051</td><td class="mono">0.204</td><td class="mono">0.807</td>
+            </tr>
+            <tr>
+              <td><strong>Qwen3-0.6B (trained)</strong></td>
+              <td class="mono"><strong>0.449</strong></td><td class="mono"><strong>0.529</strong></td><td class="mono"><strong>0.406</strong></td><td class="mono">0.709</td>
+            </tr>
+            <tr style="border-top:1.5px solid var(--ink)">
+              <td style="color: rgb(153, 153, 153);">GPT-4.1-mini</td>
+              <td class="mono" style="color: rgb(153, 153, 153);">0.537</td><td class="mono" style="color: rgb(153, 153, 153);">0.624</td><td class="mono" style="color: rgb(153, 153, 153);">0.434</td><td class="mono" style="color: rgb(153, 153, 153);">1.000</td>
+            </tr>
+          </tbody></table>
+
+          <!-- training curves -->
+          <figure style="margin:20px 0 28px; border:1px solid var(--ink); padding:20px 16px 12px; background:#fff;">
+            <div style="font-family:'JetBrains Mono',monospace; font-size:7px; color:var(--sand); letter-spacing:1px; text-transform:uppercase; margin-bottom:8px;">Training curves over 100 steps</div>
+            <svg viewBox="0 0 660 200" style="width:100%;height:auto;display:block;font-family:'JetBrains Mono',monospace;">
+              <!-- axes -->
+              <line x1="40" y1="10" x2="40" y2="180" stroke="#1a1a1a" stroke-width="0.5"></line>
+              <line x1="40" y1="180" x2="640" y2="180" stroke="#1a1a1a" stroke-width="0.5"></line>
+              <!-- y labels -->
+              <text x="36" y="183" font-size="7" fill="#b0a899" text-anchor="end">0</text>
+              <text x="36" y="98" font-size="7" fill="#b0a899" text-anchor="end">0.5</text>
+              <text x="36" y="13" font-size="7" fill="#b0a899" text-anchor="end">1.0</text>
+              <line x1="40" y1="95" x2="640" y2="95" stroke="#d6cfc6" stroke-width="0.3" stroke-dasharray="2,2"></line>
+              <!-- x labels -->
+              <text x="40" y="195" font-size="7" fill="#b0a899" text-anchor="middle">0</text>
+              <text x="190" y="195" font-size="7" fill="#b0a899" text-anchor="middle">25</text>
+              <text x="340" y="195" font-size="7" fill="#b0a899" text-anchor="middle">50</text>
+              <text x="490" y="195" font-size="7" fill="#b0a899" text-anchor="middle">75</text>
+              <text x="640" y="195" font-size="7" fill="#b0a899" text-anchor="middle">100</text>
+              <!-- baselines -->
+              <line x1="40" y1="93" x2="640" y2="93" stroke="#d6cfc6" stroke-width="1" stroke-dasharray="4,3"></line>
+              <text x="643" y="90" font-size="6" fill="#b0a899">GPT-4.1-mini</text>
+              <line x1="40" y1="137" x2="640" y2="137" stroke="#d6cfc6" stroke-width="0.8" stroke-dasharray="2,3"></line>
+              <text x="643" y="134" font-size="6" fill="#b0a899">0.6B baseline</text>
+              <!-- format_correct (light, background) -->
+              <polyline fill="none" stroke="#d6cfc6" stroke-width="1" points="40,150 46,148 52,147 58,139 64,138 70,126 76,113 82,105 88,92 95,80 101,69 107,60 113,53 119,35 125,31 131,24 137,23 143,20 149,15 155,14 161,12 167,11 173,12 179,11 185,11 192,10 198,12 204,10 210,13 216,11 222,10 228,11 234,10 240,10 246,10 252,10 258,10 264,10 270,10 276,10 282,11 288,11 295,10 301,10 307,10 313,10 319,10 325,10 331,10 337,10 343,10 349,10 355,10 361,10 367,10 373,10 379,10 385,11 392,10 398,10 404,10 410,10 416,10 422,10 428,10 434,10 440,10 446,10 452,10 458,10 464,10 470,10 476,10 482,10 488,10 495,10 501,10 507,10 513,10 519,10 525,10 531,10 537,10 543,10 549,10 555,10 561,10 567,10 573,10 579,10 585,10 592,10 598,10 604,10 610,10 616,10 622,10 628,10 634,10 640,10"></polyline>
+              <!-- cc_correct (warm orange) -->
+              <polyline fill="none" stroke="#c4713b" stroke-width="1.2" points="40,175 46,171 52,174 58,174 64,170 70,170 76,166 82,164 88,161 95,156 101,149 107,151 113,151 119,146 125,144 131,137 137,141 143,132 149,138 155,139 161,127 167,124 173,136 179,128 185,133 192,134 198,135 204,130 210,131 216,127 222,128 228,126 234,130 240,131 246,119 252,115 258,122 264,128 270,123 276,114 282,126 288,113 295,114 301,117 307,109 313,113 319,118 325,106 331,117 337,114 343,110 349,118 355,110 361,106 367,114 373,100 379,104 385,112 392,99 398,107 404,96 410,110 416,101 422,92 428,105 434,106 440,104 446,100 452,96 458,107 464,102 470,86 476,86 482,87 488,84 495,90 501,90 507,95 513,78 519,76 525,97 531,89 537,93 543,92 549,80 555,74 561,77 567,87 573,88 579,75 585,85 592,74 598,71 604,80 610,64 616,77 622,79 628,72 634,73 640,73"></polyline>
+              <!-- to_correct (teal) -->
+              <polyline fill="none" stroke="#4a7c8a" stroke-width="1.2" points="40,175 46,176 52,177 58,174 64,177 70,174 76,171 82,172 88,172 95,165 101,169 107,163 113,167 119,160 125,159 131,161 137,159 143,157 149,164 155,159 161,153 167,153 173,157 179,153 185,154 192,151 198,153 204,142 210,150 216,157 222,149 228,159 234,144 240,145 246,126 252,133 258,134 264,128 270,121 276,125 282,134 288,108 295,113 301,118 307,109 313,105 319,96 325,88 331,93 337,114 343,106 349,93 355,87 361,78 367,105 373,76 379,86 385,86 392,89 398,72 404,82 410,61 416,76 422,69 428,85 434,90 440,66 446,64 452,68 458,64 464,67 470,59 476,56 482,60 488,58 495,60 501,60 507,49 513,50 519,60 525,76 531,64 537,75 543,58 549,51 555,44 561,37 567,58 573,57 579,34 585,55 592,45 598,51 604,63 610,44 616,61 622,48 628,33 634,46 640,44"></polyline>
+              <!-- reward (black) -->
+              <polyline fill="none" stroke="#1a1a1a" stroke-width="1.5" points="40,173 46,171 52,173 58,171 64,170 70,168 76,164 82,163 88,160 95,153 101,152 107,149 113,150 119,143 125,142 131,139 137,139 143,135 149,139 155,138 161,131 167,129 173,135 179,131 185,133 192,132 198,133 204,127 210,131 216,132 222,129 228,132 234,128 240,128 246,116 252,117 258,121 264,120 270,115 276,114 282,122 288,106 295,109 301,112 307,105 313,105 319,104 325,95 331,102 337,110 343,105 349,102 355,97 361,91 367,106 373,89 379,94 385,97 392,93 398,90 404,89 410,87 416,88 422,83 428,94 434,97 440,86 446,83 452,83 458,87 464,85 470,76 476,75 482,77 488,75 495,78 501,78 507,76 513,69 519,73 525,87 531,80 537,85 543,78 549,71 555,66 561,64 567,76 573,77 579,61 585,75 592,66 598,67 604,76 610,61 616,73 622,69 628,60 634,66 640,65"></polyline>
+              <!-- legend -->
+              <line x1="50" y1="10" x2="66" y2="10" stroke="#1a1a1a" stroke-width="1.5"></line>
+              <text x="70" y="13" font-size="7" fill="#1a1a1a">reward</text>
+              <line x1="110" y1="10" x2="126" y2="10" stroke="#4a7c8a" stroke-width="1.2"></line>
+              <text x="130" y="13" font-size="7" fill="#4a7c8a">to</text>
+              <line x1="150" y1="10" x2="166" y2="10" stroke="#c4713b" stroke-width="1.2"></line>
+              <text x="170" y="13" font-size="7" fill="#c4713b">cc</text>
+              <line x1="194" y1="10" x2="210" y2="10" stroke="#d6cfc6" stroke-width="1"></line>
+              <text x="214" y="13" font-size="7" fill="#d6cfc6">format</text>
+            </svg>
+          </figure>
+
+          <p>
+            The training had three phases. In the first ~20 steps, the model learned formatting: <code>format_correct</code> went from 0.18 to 1.0. Schema validity acts as a gate on the rest of the reward: To/CC/BCC score zero unless the output parses as valid JSON. So the model had to solve format first to unlock any semantic credit. In steps 20-50, with format solved, reward shifted to recipient placement. In steps 50-100, To and CC continued climbing steadily.
+          </p>
+
+          <p>
+            On single-turn, the trained model decisively outperforms GPT-4.1-mini on unseen test examples. To: 0.822 vs 0.540. CC: 0.695 vs 0.390. Overall reward: 0.710 vs 0.486. A much smaller model, trained for under two hours, exceeded a frontier API model on the narrow task it was trained for. This is a strong example of the RLVR thesis: targeted training with a clear reward signal can produce specialist models that beat stronger generalist models.
+          </p>
+
+          <p>
+            On three-turn, GPT-4.1-mini wins (0.537 vs 0.449). The gap is driven primarily by format collapse: the trained model drops to 71% format compliance by turn 3, while GPT maintains perfect format throughout. On valid turns, the trained model's placement quality carries over from single-turn. The three-turn result is not a failure of the approach; it isolates the remaining problem. Recipient placement improved, but the model cannot reliably preserve the output contract across turns it was never trained on.
+          </p>
+
+          <p>
+            GPT-4.1-mini's main failure mode is the "all-in-To" pattern: it dumps everyone into To and leaves CC empty. The trained model learned the distinction between "must act" (To) and "kept in the loop" (CC). In examples where the trained model scores above 0.9 while GPT scores below 0.5, the pattern is always the same: the trained model correctly separates one action owner into To and puts the rest in CC, while GPT puts everyone in To.
+          </p>
+
+          <p>
+            After training, the model also became more concise: thinking blocks dropped from ~3800 characters to ~760 characters (5x shorter). This was not explicitly rewarded. It is consistent with an indirect pressure: reward depends only on the final JSON, and shorter completions leave less room for drift.
+          </p>
+
+          <h4>What's next</h4>
+
+          <p>
+            What remains is now is multi-turn format persistence. Phase B: could be SFT on the dataset's ground-truth answers (full 3-turn conversations with clean JSON) to teach format persistence across turns. Phase C then could become: GRPO on max_turns=2 and 3 to optimize placement on later turns. The single-turn routing "skill" should transfer.</p>
+
+          <!-- ═══════════════════════════════════════════════════════════
+               DOLTGRES
+               ═══════════════════════════════════════════════════════════ -->
+
+          <h3 class="section-h" id="s-doltgres-intro"><span>Doltgres</span></h3>
+
+          <p>
+            I looked at a bunch of Postgres-based options for sandboxing and lightweight DB environments: containers, in-process builds, things like PGlite. PGlite is WASM, Postgres compiled to WebAssembly, single process, quick, spins up instantly. Docker is slow and Postgres is big, so the question is what you can use that behaves like Postgres but is fast to spin up, fork, and throw away. Doltgres is native Go, which is nice. It is the one I found most interesting for agents and the one I am working on now. It goes nicley into the synthetic database problem.
+          </p>
+
+          <p>
+            so&nbsp;<a href="https://github.com/dolthub/doltgresql" target="_blank" rel="noopener">Doltgres</a> is a Postgres-wire server built on the Dolt engine. It lets Postgres clients connect normally while exposing Dolt's version-control model through SQL. The core idea is Git for database state: you can branch, diff, merge, and commit database changes, with row-level history underneath. Every transaction can be turned into a versioned commit. An agent needs a safe copy of the world it is about to change, maybe not a sandbox, perhaps not a container, but maybe a branch should work. Doltgres is currently in pre-alpha, heard they talked about proper release late 2026, nice! It has the same storage engine as Dolt.
+          </p>
+
+          <h4>Why it matters for agents</h4>
+
+          <p>There are two interesting applications of Doltgres I see:</p>
+
+          <ul style="list-style: none; padding-left: 0;">
+            <li><strong>RL:</strong> forkable state, fast reset, isolated concurrent worlds, diffable outcomes, replayability. The database as a training environment.</li>
+            <li><strong>Product layer:</strong> human-readable versioned history, debugging, benchmarking, artifacts. The database as an auditable record.</li>
+          </ul>
+
+          <p>
+            Doltgres handles both because branching is cheap (no VMs, no containers, just a logical fork inside the same process) and the history is rich (row-level diffs, commit messages, per-row timelines).&nbsp; More to come.
+          </p>
+
+        </div>
+
+
+
+        <section class="back-section"><a href="projects.html" class="collection-btn">Back to Projects</a>
+        </section>
+      </article>
+    </main>
+
+    <div class="corner-drawing">
+      <img src="../images/index/drawing.png" alt="Corner drawing">
+    </div>
+    <script src="../script.js"></script>
+  
+
+
+
+
+
+
+
+</body></html>

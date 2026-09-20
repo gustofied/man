@@ -1,0 +1,123 @@
+{
+  "terminal2f_commit": "3ea8221a46fa91e8bba616d6d14add3db51bbeea",
+  "dbenv_commit": "ffdb5fabe6e33c6fe464e60fcafe8fea8bb7911b",
+  "dbenv_origin": "https://github.com/gustofied/dbenv.git",
+  "copied_files": [
+    {
+      "source": "assets/docs/rl/doltgres.html",
+      "destination": "docs/rl/doltgres.html",
+      "sha256": "e32ef114acdacc87a21a5dd3460111f4a76a95cb1ff4f64a5446f756d62223a9"
+    },
+    {
+      "source": "assets/docs/rl/doltgres_env.html",
+      "destination": "docs/rl/doltgres_env.html",
+      "sha256": "d3f53462557fd19e729b810e58c4421275775134261b82cb6ef62933e8cfd928"
+    },
+    {
+      "source": "assets/docs/rl/sandboxes.html",
+      "destination": "docs/rl/sandboxes.html",
+      "sha256": "c4d6d225b370d73fe9fe7d467caf0f3dee94dcefc41ba1d09dbf195bceee3be2"
+    },
+    {
+      "source": "assets/docs/rl/environments.html",
+      "destination": "docs/rl/environments.html",
+      "sha256": "5728092d55d15abf70b446bf6a6e1e120de383c6b8dc6ff9ccdfcbe03339c85d"
+    },
+    {
+      "source": "assets/docs/rl/pglite_env.html",
+      "destination": "docs/rl/pglite_env.html",
+      "sha256": "15e1084c34474e16a67279984b777f81c22596b99c1caec321b82dcf0ea54aaf"
+    },
+    {
+      "source": "assets/docs/rl/trainer.html",
+      "destination": "docs/rl/trainer.html",
+      "sha256": "bb32c02226eac3c6e21d6982ebb0c6ac0bd0e19d0a3a496882bd027b4e2fe3fb"
+    },
+    {
+      "source": "assets/docs/rl/end_to_end.html",
+      "destination": "docs/rl/end_to_end.html",
+      "sha256": "9562da8acc50f5c5009c01dadc94711db31a8d475f908a60f82296ad096a867f"
+    },
+    {
+      "source": "assets/docs/rl/t2f_trainer.html",
+      "destination": "docs/rl/t2f_trainer.html",
+      "sha256": "6536e27fc9b6b44b80865b88e6be59e2484ac89a879bcc6605c21d7c2e05e943"
+    },
+    {
+      "source": "assets/docs/edit.js",
+      "destination": "docs/edit.js",
+      "sha256": "6c30341bdf882264cc7e2d6a538c30dc91c340db355db33ed89e7e4cfafce5eb"
+    },
+    {
+      "source": "assets/docs/serve.py",
+      "destination": "docs/serve.py",
+      "sha256": "01b3aa50a6c134c8240a025402b8d142214ac99f7f4f804b122014ff2d78c557"
+    },
+    {
+      "source": "assets/docs/STYLE.md",
+      "destination": "docs/STYLE.md",
+      "sha256": "85f4f4f4708034743cf641cd35f6ecb8e1093202d008afe5a65aec0b4d3abc3c"
+    },
+    {
+      "source": "nuggets/dbenv/PROPOSAL.md",
+      "destination": "PROPOSAL.md",
+      "sha256": "695337c646f21f1e0a6175a8c548bf11b4780f11fe04ceca527b4d2011b38729"
+    },
+    {
+      "source": "nuggets/dbenv/dolt/tooling/results/run_2026-03-13_21-30-55.json",
+      "destination": "dolt/tooling/results/run_2026-03-13_21-30-55.json",
+      "sha256": "d7fbf167cf07f8b90118541d04d4fb6795bd37adbf1a15a7041030f0eaee0681"
+    },
+    {
+      "source": "nuggets/dbenv/dolt/tooling/results/run_2026-03-13_21-32-00.json",
+      "destination": "dolt/tooling/results/run_2026-03-13_21-32-00.json",
+      "sha256": "0cf487585af50ed07de2e37f43c760060ad5bc100e3e3173cae5523abedf09d7"
+    },
+    {
+      "source": "nuggets/dbenv/dolt/tooling/results/run_2026-03-13_21-41-25.json",
+      "destination": "dolt/tooling/results/run_2026-03-13_21-41-25.json",
+      "sha256": "f400d002c2ee75a40ccfadf924b5e9797f576ac705ef55ed1b061eaa45418f6f"
+    },
+    {
+      "source": "nuggets/dbenv/dolt/tooling/results/run_2026-03-13_21-41-44.json",
+      "destination": "dolt/tooling/results/run_2026-03-13_21-41-44.json",
+      "sha256": "6e495067b4b63e0ad0ace0a35ad424c8793c59a8a1d24455b9d627ebcd0916cf"
+    },
+    {
+      "source": "nuggets/dbenv/dolt/tooling/results/run_2026-03-13_21-43-20.json",
+      "destination": "dolt/tooling/results/run_2026-03-13_21-43-20.json",
+      "sha256": "d9e156fdfb6d22637224160806051c7d5be601611c992a9e785b5b15cf14cbc9"
+    },
+    {
+      "source": "nuggets/dbenv/dolt/tooling/results/run_2026-03-13_21-49-00.json",
+      "destination": "dolt/tooling/results/run_2026-03-13_21-49-00.json",
+      "sha256": "1930f61204b81a4c6791c63faae6abfe11d8cff1a03e5a8679a2891b4df6f0cb"
+    },
+    {
+      "source": "nuggets/dbenv/dolt/tooling/results/run_2026-03-13_21-49-35.json",
+      "destination": "dolt/tooling/results/run_2026-03-13_21-49-35.json",
+      "sha256": "3deebca63fa60cd0715dd988683b30c9a8cb82c313048c70d272dcc4b766bfb0"
+    },
+    {
+      "source": "nuggets/dbenv/dolt/tooling/results/run_2026-03-13_21-50-44.json",
+      "destination": "dolt/tooling/results/run_2026-03-13_21-50-44.json",
+      "sha256": "fb4ac19b8f5afc11579619738703fb2d24bb20aab6a79843142f1f3745c4b702"
+    },
+    {
+      "source": "nuggets/dbenv/dolt/tooling/results/run_2026-03-13_21-50-56.json",
+      "destination": "dolt/tooling/results/run_2026-03-13_21-50-56.json",
+      "sha256": "49c82c9069ef5a17476dbc24c8557199acab7dde4e7ad53495a1ea3960f52275"
+    },
+    {
+      "source": "nuggets/dbenv/dolt/tooling/results/run_2026-03-13_21-52-04.json",
+      "destination": "dolt/tooling/results/run_2026-03-13_21-52-04.json",
+      "sha256": "5d90f84ca1f05a67f3eefd3c9888b422315adeae7588ba6be7b9a66a61e8f899"
+    }
+  ],
+  "excluded": [
+    "runtime database storage",
+    "credentials/config state under .doltcfg",
+    "Python caches",
+    "unrelated RL environments and trainer source"
+  ]
+}

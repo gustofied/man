@@ -1,0 +1,7 @@
+title = "Recognizers"
+
+[[groups]]
+name = "Foundations"
+docs = [
+    { file = "automata", title = "Automata" },
+]
